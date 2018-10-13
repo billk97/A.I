@@ -72,6 +72,22 @@ public class State {
      * the game reversi **/
     public boolean isValid(int x,int y,String Color)
     {
+        /** TODO how to white the rules
+         * ---->ROW<----
+         * to add a element in a row you need at least two other element in the same row
+         * 1 of the same cole one with a different
+         * the elements need to have a element with different color  either directly above or under
+         * ---->COLUMN<----
+         * to add a element in a column you need at least two other element in the same Column
+         * 1 of the same cole one with a different
+         * the elements need to have a element with different color  either directly left or right **/
         return true;
     }//end iaValid
+    /**this function returns true when the x , y inserted is within
+     * the border of the game WIDTH ,HEIGHT **/
+    public boolean isInBorder()
+    {
+        //TODO by melis
+        return true;
+    }//end isInBorder
 }
