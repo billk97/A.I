@@ -1,4 +1,4 @@
-
+//bill
 public class State {
     private int Width =9 ,Heigth =9;
     private String [][] LayoutTable = new String[Width][Heigth];
