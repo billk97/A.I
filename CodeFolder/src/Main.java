@@ -11,6 +11,7 @@ public  class Main {
         game1.print();
         game1.addElement(7,7,"O");
         game1.print();
+        game1.Score();
 
     }
 

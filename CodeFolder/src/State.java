@@ -1,4 +1,4 @@
-//bill
+
 public class State {
     private int Width =9 ,Heigth =9;
     private String [][] LayoutTable = new String[Width][Heigth];
@@ -13,8 +13,7 @@ public class State {
             }
         }
         System.out .println("\n \n -------------------Stop-----------------------");
-
-    }
+    }//end print
     /**runs at the start of the game and initialies the game State**/
     public String[][] Initializer ()
     {
@@ -38,12 +37,12 @@ public class State {
         LayoutTable[5][4]="X";
         LayoutTable[5][5]="O";
         return LayoutTable;
-    }
+    }//end Inotializer
     /**allows the user to to add an element to the the game**/
     public void addElement(int x,int y,String Color )
     {
         LayoutTable[x][y]=Color;
-    }
+    }//end addElement
     /**keaps the score of the two players
      * returns a table with 2 values
      * CounterTable 0 for player 1
@@ -52,8 +51,27 @@ public class State {
     public int[]  Score()
     {
         int [] CounterTable = {0,0};
+        for(int i=0; i<Width; i++)
+        {
+            for(int j=0; j< Heigth; j++)
+            {
+                if (LayoutTable[i][j].equals("O"))
+                {
+                    CounterTable[0]++;
+                }
+                else if (LayoutTable[i][j].equals("X"))
+                {
+                    CounterTable[1]++;
+                }
+            }
+        }
+        System.out.println("Player 1: "+CounterTable[0]+" "+"Player 2: "+CounterTable[1]);
         return CounterTable;
-    }
-
-
+    }//end Score
+    /**this function ckecks if the given input is valid regarding the rules of
+     * the game reversi **/
+    public boolean isValid(int x,int y,String Color)
+    {
+        return true;
+    }//end iaValid
 }
