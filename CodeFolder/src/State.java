@@ -85,9 +85,12 @@ public class State {
     }//end iaValid
     /**this function returns true when the x , y inserted is within
      * the border of the game WIDTH ,HEIGHT **/
-    public boolean isInBorder()
+    public boolean isInBorder(int x,int y)
     {
-        //TODO by melis
-        return true;
+        if( x>=0 && x<=9 && y>=0 && y<=9)
+            return true;
+        else
+            return false;
+
     }//end isInBorder
 }
