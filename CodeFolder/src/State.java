@@ -224,6 +224,86 @@ public class State {
             }
         }
     }
+    /**this function is responsible of flipping or reversing the Elements regarding reversi rules
+     * Rules
+     * **/
+   /*
+    public void FlipElements(int i, int j,String Color)
+    {
+        int count;
+        String OppositeColor ;
+        if (Color.equals("O"))
+        {
+            OppositeColor="X";
+        }
+        else
+        {
+            OppositeColor="O";
+        }
+        count=0;
+        while(LayoutTable[i][j-1-count].equals(OppositeColor)&& j-1-count >  1)
+        {
+            LayoutTable[i][j-2-count] = Color;
+            count++;
+        }
+        //check right
+        count=0;
+        while(LayoutTable[i][j+1+count].equals(OppositeColor)&& j+1+count <=8)
+        {
+                LayoutTable[i][j+2+count] =  Color;
+
+            count++;
+        }
+        //check down
+        count=0;
+        while(LayoutTable[i-1-count][j].equals(OppositeColor)&& i-1-count >  1)
+        {
+                LayoutTable[i-2-count][j] =  Color;
+
+            count++;
+        }
+        //check up
+        count=0;
+        while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
+        {
+                LayoutTable[i+2+count][j] =  Color;
+
+            count++;
+        }
+        //check diagonal up left
+        count=0;
+        while(LayoutTable[i-1-count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i-1-count >  1)
+        {
+                LayoutTable[i-2-count][j-2-count] =  Color;
+
+            count++;
+        }
+        //check diagonal up right
+        count=0;
+        while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
+        {
+                LayoutTable[i-2-count][j+2+count] =  Color;
+
+            count++;
+        }
+        //check diagonal down left
+        count=0;
+        while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
+        {  LayoutTable[i+2+count][j-2-count] =  Color;
+
+            count++;
+        }
+        //check diagonal down right
+        count=0;
+        while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
+        {
+                LayoutTable[i+2+count][j+2+count] =  Color;
+
+            count++;
+        }
+
+    }
+    */
 
     /**this function returns true when the x , y inserted is within
      * the border of the game WIDTH ,HEIGHT **/
