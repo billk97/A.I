@@ -65,14 +65,15 @@ public class State {
                 }
             }
         }
+
         System.out.println("Player 1: "+CounterTable[0]+" "+"Player 2: "+CounterTable[1]);
         return CounterTable;
     }//end Score
     /**this function ckecks if the given input is valid regarding the rules of
      * the game reversi **/
-    public boolean isValid(int x,int y,String Color)
+    public void Predict(String Color)
     {
-        /** TODO how to white the rules
+        /**
          * ---->ROW<----
          * to add a element in a row you need at least two other element in the same row
          * 1 of the same cole one with a different
@@ -81,13 +82,117 @@ public class State {
          * to add a element in a column you need at least two other element in the same Column
          * 1 of the same cole one with a different
          * the elements need to have a element with different color  either directly left or right **/
-        return true;
+        String OppositeColor ;
+        if (Color.equals("O"))
+        {
+            OppositeColor="X";
+        }
+        else
+            {
+                OppositeColor="O";
+            }
+
+        int count;
+        for(int i=1; i<Width; i++)
+        {
+            for(int j=1; j< Heigth; j++)
+            {
+                if(LayoutTable[i][j].equals(Color))
+                {
+                    //  check the left
+                    count=0;
+                    while(LayoutTable[i][j-1-count].equals(OppositeColor)&& j-1-count >  1)
+                    {
+                        if(LayoutTable[i][j-2-count].equals("_"))
+                        {
+                            LayoutTable[i][j-2-count] = ".";
+                        }
+                        count++;
+                    }
+                    //check right
+                    count=0;
+                    while(LayoutTable[i][j+1+count].equals(OppositeColor)&& j+1+count <=8)
+                    {
+                        if(LayoutTable[i][j+2+count].equals("_"))
+                        {
+                            LayoutTable[i][j+2+count] = ".";
+                        }
+                        count++;
+                    }
+                    //check down
+                    count=0;
+                    while(LayoutTable[i-1-count][j].equals(OppositeColor)&& i-1-count >  1)
+                    {
+                        if(LayoutTable[i-2-count][j].equals("_"))
+                        {
+                            LayoutTable[i-2-count][j] = ".";
+                        }
+                        count++;
+                    }
+                    //check up
+                    count=0;
+                    while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
+                    {
+                        if(LayoutTable[i+2+count][j].equals("_"))
+                        {
+                            LayoutTable[i+2+count][j] = ".";
+                        }
+                        count++;
+                    }
+                    //check diagonal up left
+                    count=0;
+                    while(LayoutTable[i-1-count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i-1-count >  1)
+                    {
+                        if(LayoutTable[i-2-count][j-2-count].equals("_"))
+                        {
+                            LayoutTable[i-2-count][j-2-count] = ".";
+                        }
+                        count++;
+                    }
+                    //check diagonal up right
+                    count=0;
+                    while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
+                    {
+                        if(LayoutTable[i-2-count][j+2+count].equals("_"))
+                        {
+                            LayoutTable[i-2-count][j+2+count] = ".";
+                        }
+                        count++;
+                    }
+                    //check diagonal down left
+                    count=0;
+                    while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
+                    {
+                        if(LayoutTable[i+2+count][j-2-count].equals("_"))
+                        {
+                            LayoutTable[i+2+count][j-2-count] = ".";
+                        }
+                        count++;
+                    }
+                    //check diagonal down right
+                    count=0;
+                    while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
+                    {
+                        if(LayoutTable[i+2+count][j+2+count].equals("_"))
+                        {
+                            LayoutTable[i+2+count][j+2+count] = ".";
+                        }
+                        count++;
+                    }
+
+
+
+
+                }
+            }
+        }
+
     }//end iaValid
     /**this function returns true when the x , y inserted is within
      * the border of the game WIDTH ,HEIGHT **/
     public boolean isInBorder(int x,int y)
     {
-        if( x>=0 && x<=9 && y>=0 && y<=9)
+        if( x>=1 && x<=9 && y>=1 && y<=9)
             return true;
         else
             return false;
