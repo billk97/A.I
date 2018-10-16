@@ -1,7 +1,7 @@
 
 public class State {
-    private int Width =9 ,Heigth =9;
-    private String [][] LayoutTable = new String[Width][Heigth];
+    private int Width =9 ,Height =9;
+    private String [][] LayoutTable = new String[Width][Height];
     /**prints the corent state of the game**/
     public void print() {
         System.out .print("-------------------Start-----------------------");
@@ -14,13 +14,23 @@ public class State {
         }
         System.out .println("\n \n -------------------Stop-----------------------");
     }//end print
+    /**returns the Width**/
+    public int getWidth()
+    {
+        return Width;
+    }//end of getWidth
+    /**returns the height **/
+    public int getHeight()
+    {
+        return Height;
+    }
     /**runs at the start of the game and initialies the game State**/
     public String[][] Initializer ()
     {
         for (int i=0; i<Width ; i++)
         {
             System.out.print("\n");
-            for(int j=0; j<Heigth; j++){
+            for(int j=0; j<Height; j++){
                 LayoutTable[i][j]="_";
             }
         }
@@ -28,7 +38,7 @@ public class State {
         {
             LayoutTable[i][0]=""+i;
         }
-        for (int i=0; i<Heigth;i++)
+        for (int i=0; i<Height;i++)
         {
             LayoutTable[0][i]=""+i;
         }
@@ -53,7 +63,7 @@ public class State {
         int [] CounterTable = {0,0};
         for(int i=0; i<Width; i++)
         {
-            for(int j=0; j< Heigth; j++)
+            for(int j=0; j< Height; j++)
             {
                 if (LayoutTable[i][j].equals("O"))
                 {
@@ -65,7 +75,7 @@ public class State {
                 }
             }
         }
-
+        System.out.print("Score: ");
         System.out.println("Player 1: "+CounterTable[0]+" "+"Player 2: "+CounterTable[1]);
         return CounterTable;
     }//end Score
@@ -95,7 +105,7 @@ public class State {
         int count;
         for(int i=1; i<Width; i++)
         {
-            for(int j=1; j< Heigth; j++)
+            for(int j=1; j< Height; j++)
             {
                 if(LayoutTable[i][j].equals(Color))
                 {
@@ -187,7 +197,34 @@ public class State {
             }
         }
 
-    }//end iaValid
+    }//end Predict
+    /**this function chacks if the given space in s "." or not **/
+    public boolean isDot(int x,int y)
+    {
+        if(LayoutTable[x][y].equals("."))
+        {
+            return true;
+
+        }else
+            {
+                return false;
+            }
+    }
+    /**this functions deletes all the "." from the LayoutTable**/
+    public void DeleteDot()
+    {
+        for(int i=0; i<Width; i++)
+        {
+            for (int j=0; j<Height; j++)
+            {
+                if(LayoutTable[i][j].equals("."))
+                {
+                    LayoutTable[i][j]="_";
+                }
+            }
+        }
+    }
+
     /**this function returns true when the x , y inserted is within
      * the border of the game WIDTH ,HEIGHT **/
     public boolean isInBorder(int x,int y)
