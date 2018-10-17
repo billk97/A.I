@@ -93,6 +93,7 @@ public  class Main {
                 {
                     game1.DeleteDot();
                     game1.addElement(x,y,OppositeColor);
+                    game1.FlipElements(x,y,OppositeColor);
                     count ++;
                 }
                 else
@@ -151,7 +152,7 @@ public  class Main {
                     {
                         game1.DeleteDot();
                         game1.addElement(x,y,Color);
-                       // game1.FlipElements(x,y,Color);
+                        game1.FlipElements(x,y,Color);
                         count ++;
                     }
                     else
