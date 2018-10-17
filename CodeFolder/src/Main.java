@@ -1,39 +1,32 @@
 
-import javafx.scene.transform.Scale;
 import java.util.Scanner;
 import java.util.*;
 import  java.io.*;
 
 public  class Main {
 
-    //TODO ANAPODOGIRISMA
-    //TODO
+
+
+
+
+    public static State game1 = new State();
     public  static void main(String[] args)
     {
-        State game1 = new State();
         boolean exit = false ;
         game1.Initializer();
-        String Color= "O";
+        String Color;
         Scanner reader = new Scanner(System.in);
         System.out.println("choose X or O: ");
         Color = reader.nextLine();
         String OppositeColor ="X";
-        /** checks if given value is a desired value**/
+        /**checks if given value is a desired value**/
         while(!(Color.equals("O"))&&!(Color.equals("X")))
         {
             System.out.println("choose X or O: ");
             Color = reader.nextLine();
-
         }
         /**creates the opposite color (the other player)**/
-        if (Color.equals("O"))
-        {
-            OppositeColor="X";
-        }
-        else if(Color.equals("X"))
-        {
-            OppositeColor="O";
-        }
+        OppositeColor=FindOpositeColore(Color);
         /**useful its a simple counter**/
         int count=1;
 
@@ -46,124 +39,82 @@ public  class Main {
             if(count %2 == 0)
             {
                 /**players 2 turn **/
-                System.out.println("Playing: "+OppositeColor);
-                game1.Predict(OppositeColor);//predicts the next move
-                game1.Score();
-                game1.print();
-                int x=0 , y=0;
-                System.out.println("X which row ");
-                System.out.print("X: ");
-                /**should catch the exception  **/
-                while(true)
-                {
-                    try
-                    {
-                        x = reader.nextInt();//could cause an exception if input is string
-                        break;
-                    }
-                    catch(Exception  e)
-                    {
-                        /**doing samething to prevent the exception **/
-                        System.out.println("Wrong Input");
-                        reader.next();//waits for the next INPUT
-                        System.out.println("X which row ");
-                        System.out.print("X: ");
-                        x = reader.nextInt();
-                    }
-                }
-                System.out.println("Y which column  ");
-                System.out.print("Y: ");
-                /**should catch the exception  **/
-                while(true)
-                {
-                    try
-                    {
-                        y = reader.nextInt();//could cause an exception if input is string
-                        break;
-                    }catch(Exception  e)
-                    {
-                        /**doing samething to prevent the exception **/
-                        System.out.println("Wrong Input");
-                        reader.next();//waits for the next INPUT
-                        System.out.println("Y which column  ");
-                        System.out.print("Y: ");
-                    }
-                }
-                if(x<=game1.getHeight()&&y<=game1.getWidth() && game1.isDot(x,y)== true && (OppositeColor.equals("X")||  OppositeColor.equals("O")))
-                {
-                    game1.DeleteDot();
-                    game1.addElement(x,y,OppositeColor);
-                    game1.FlipElements(x,y,OppositeColor);
-                    count ++;
-                }
-                else
-                {
-                    System.out.println("Move not valid please retry !");
-                }
+                count = PlayerTurn(OppositeColor,count);
             }
             else
-                {
-                    /**players 1 turn **/
-                    System.out.println("Playing: "+Color);
-                    game1.Predict(Color);
-                    game1.Score();
-                    game1.print();
-                    int x=0 , y=0;
-                    System.out.println("X which row ");
-                    System.out.print("X: ");
-                    /**should catch the exception  **/
-                    while(true)
-                    {
-                        try
-                        {
-                            x = reader.nextInt();//could cause an exception if input is string
-                            break;
-                        }catch(InputMismatchException   ex)
-                        {
-                            /**doing samething to prevent the exception **/
-                            System.out.println("Wrong Input");
-                            reader.next();//waits for the next INPUT
-                            System.out.println("X which row ");
-                            System.out.print("X: ");
-                        }
-                    }
-
-                    System.out.println("Y which column  ");
-                    System.out.print("Y: ");
-                    /**should catch the exception  **/
-                    while(true)
-                    {
-                        try
-                        {
-                            y = reader.nextInt();//could cause an exception if input is string
-                            break;
-                        }catch(Exception  e)
-                        {
-                            /**doing samething to prevent the exception **/
-                            System.out.println("Wrong Input");
-                            reader.next();//waits for the next INPUT
-                            System.out.println("Y which column  ");
-                            System.out.print("Y: ");
-                        }
-                    }
-
-
-                    if(x<=game1.getHeight()&&y<=game1.getWidth() && game1.isDot(x,y)== true && (Color.equals("X")||  Color.equals("O")))
-                    {
-                        game1.DeleteDot();
-                        game1.addElement(x,y,Color);
-                        game1.FlipElements(x,y,Color);
-                        count ++;
-                    }
-                    else
-                    {
-                        System.out.println("Move not valid please retry !");
-                    }
-                }
-            System.out.println("EXIT?  ");
-
+            {
+                count = PlayerTurn(Color,count);
+            }
+            System.out.println("EXIT:?  ");
         }//end while
         reader.close();
     }//end main
+
+
+
+
+    /**this function checks if the user has given the correct type of value (an integer)**/
+    public static int TryCachFunction()
+    {
+        Scanner reader = new Scanner(System.in);
+        int y=0;
+        while(true)
+        {
+            try
+            {
+                y = reader.nextInt();//could cause an exception if input is string
+                break;
+            }catch(Exception  e)
+            {
+                /**doing samething to prevent the exception **/
+                System.out.println("Wrong Input");
+                reader.next();//waits for the next INPUT
+                System.out.println("Y which column  ");
+                System.out.print("Y: ");
+            }
+        }
+        return y;
+    }//end of TryCachFunction
+    private static String FindOpositeColore(String Color)
+    {
+        String OppositeColor="O";
+        if (Color.equals("O"))
+        {
+            OppositeColor="X";
+        }
+        else if(Color.equals("X"))
+        {
+            OppositeColor="O";
+        }
+        return OppositeColor;
+    }//end of FindOpositeColore
+    private static int PlayerTurn(String Color ,int count )
+    {
+        System.out.println("Playing: "+Color);
+        game1.Predict(Color);
+        game1.Score();
+        game1.print();
+        int x=0 , y=0;
+        System.out.println("X which row ");
+        System.out.print("X: ");
+        /**should catch the exception  **/
+        x = TryCachFunction();
+        System.out.println("Y which column  ");
+        System.out.print("Y: ");
+        /**should catch the exception  **/
+        y = TryCachFunction();
+        if(x<=game1.getHeight()&&y<=game1.getWidth() && game1.isDot(x,y)== true && (Color.equals("X")||  Color.equals("O")))
+        {
+            game1.DeleteDot();
+            game1.addElement(x,y,Color);
+            game1.FlipElements(x,y,Color);
+            count ++;
+        }
+        else
+        {
+            System.out.println("Move not valid please retry !");
+        }
+        return count;
+    }
 }//end Main
 

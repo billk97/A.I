@@ -227,7 +227,6 @@ public class State {
 
     public void FlipElements(int i, int j,String Color)
     {
-        Color=Color;
         int count;
         String OppositeColor ;
         if (Color.equals("O"))
