@@ -239,70 +239,86 @@ public class State {
         }
         if(LayoutTable[i][j].equals(Color))
         {
+            //check left
             count=0;
             while(LayoutTable[i][j-1-count].equals(OppositeColor)&& j-1-count >  1)
             {
-                LayoutTable[i][j-1-count] = Color;
-
+                if(LayoutTable[i][j-2-count].equals(Color))
+                {
+                    LayoutTable[i][j-1-count] = Color;
+                }
                 count++;
             }
             //check right
             count=0;
             while(LayoutTable[i][j+1+count].equals(OppositeColor)&& j+1+count <=8)
             {
-                LayoutTable[i][j+1+count] =  Color;
-
+                if(LayoutTable[i][j+2+count].equals(Color))
+                {
+                    LayoutTable[i][j+1+count] = Color;
+                }
                 count++;
             }
             //check down
             count=0;
             while(LayoutTable[i-1-count][j].equals(OppositeColor)&& i-1-count >  1)
             {
-                LayoutTable[i-1-count][j] =  Color;
-
+                if(LayoutTable[i-2-count][j].equals(Color))
+                {
+                    LayoutTable[i-1-count][j] = Color;
+                }
                 count++;
             }
             //check up
             count=0;
             while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
             {
-                LayoutTable[i+1+count][j] =  Color;
-
+                if(LayoutTable[i+2+count][j].equals(Color))
+                {
+                    LayoutTable[i+1+count][j] = Color;
+                }
                 count++;
             }
             //check diagonal up left
             count=0;
             while(LayoutTable[i-1-count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i-1-count >  1)
             {
-                LayoutTable[i-1-count][j-1-count] =  Color;
-
+                if(LayoutTable[i-2-count][j-2-count].equals(Color))
+                {
+                    LayoutTable[i-1-count][j-1-count] = Color;
+                }
                 count++;
             }
             //check diagonal up right
             count=0;
             while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
             {
-                LayoutTable[i-1-count][j+1+count] =  Color;
-
+                if(LayoutTable[i-2-count][j+2+count].equals(Color))
+                {
+                    LayoutTable[i-1-count][j+1+count] = Color;
+                }
                 count++;
             }
             //check diagonal down left
             count=0;
             while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
             {
-                LayoutTable[i+1+count][j-1-count] =  Color;
-
+                if(LayoutTable[i+2+count][j-2-count].equals(Color))
+                {
+                    LayoutTable[i+1+count][j-1-count] = Color;
+                }
                 count++;
             }
             //check diagonal down right
             count=0;
             while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
             {
-                LayoutTable[i+1+count][j+1+count] =  Color;
-
+                if(LayoutTable[i+2+count][j+2+count].equals(Color))
+                {
+                    LayoutTable[i+1+count][j+1+count] = Color;
+                }
                 count++;
             }
-
         }
 
 
