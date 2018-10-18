@@ -18,7 +18,7 @@ public  class Main {
         Scanner reader = new Scanner(System.in);
         System.out.println("choose X or O: ");
         Color = reader.nextLine();
-        String OppositeColor ="X";
+        String OppositeColor;
         /**checks if given value is a desired value**/
         while(!(Color.equals("O"))&&!(Color.equals("X")))
         {
@@ -54,7 +54,7 @@ public  class Main {
 
 
     /**this function checks if the user has given the correct type of value (an integer)**/
-    public static int TryCachFunction()
+    public static int TryCachFunction(String XorY, String tipos)
     {
         Scanner reader = new Scanner(System.in);
         int y=0;
@@ -69,8 +69,8 @@ public  class Main {
                 /**doing samething to prevent the exception **/
                 System.out.println("Wrong Input");
                 reader.next();//waits for the next INPUT
-                System.out.println("Y which column  ");
-                System.out.print("Y: ");
+                System.out.println(XorY+" which  "+tipos+ " ");
+                System.out.print(XorY+": ");
             }
         }
         return y;
@@ -98,11 +98,11 @@ public  class Main {
         System.out.println("X which row ");
         System.out.print("X: ");
         /**should catch the exception  **/
-        x = TryCachFunction();
+        x = TryCachFunction("X","row");
         System.out.println("Y which column  ");
         System.out.print("Y: ");
         /**should catch the exception  **/
-        y = TryCachFunction();
+        y = TryCachFunction("Y","column");
         if(x<=game1.getHeight()&&y<=game1.getWidth() && game1.isDot(x,y)== true && (Color.equals("X")||  Color.equals("O")))
         {
             game1.DeleteDot();
