@@ -123,13 +123,17 @@ public class State {
                     count=0;
                     while(LayoutTable[i][j+1+count].equals(OppositeColor)&& j+1+count <=8)
                     {
+                        if(j+2+count>8)
+                        {
+                            break;
+                        }
                         if(LayoutTable[i][j+2+count].equals("_"))
                         {
                             LayoutTable[i][j+2+count] = ".";
                         }
                         count++;
                     }
-                    //check down
+                    //check up
                     count=0;
                     while(LayoutTable[i-1-count][j].equals(OppositeColor)&& i-1-count >  1)
                     {
@@ -139,10 +143,14 @@ public class State {
                         }
                         count++;
                     }
-                    //check up
+                    //check down
                     count=0;
                     while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
                     {
+                        if(j+2+count>8)
+                        {
+                            break;
+                        }
                         if(LayoutTable[i+2+count][j].equals("_"))
                         {
                             LayoutTable[i+2+count][j] = ".";
@@ -163,6 +171,10 @@ public class State {
                     count=0;
                     while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
                     {
+                        if(j+2+count>8)
+                        {
+                            break;
+                        }
                         if(LayoutTable[i-2-count][j+2+count].equals("_"))
                         {
                             LayoutTable[i-2-count][j+2+count] = ".";
@@ -173,6 +185,10 @@ public class State {
                     count=0;
                     while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
                     {
+                        if(i+2+count>8)
+                        {
+                            break;
+                        }
                         if(LayoutTable[i+2+count][j-2-count].equals("_"))
                         {
                             LayoutTable[i+2+count][j-2-count] = ".";
@@ -183,6 +199,14 @@ public class State {
                     count=0;
                     while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
                     {
+                        if(j+2+count>8)
+                        {
+                            break;
+                        }
+                        if(i+2+count>8)
+                        {
+                            break;
+                        }
                         if(LayoutTable[i+2+count][j+2+count].equals("_"))
                         {
                             LayoutTable[i+2+count][j+2+count] = ".";
@@ -243,9 +267,13 @@ public class State {
             count=0;
             while(LayoutTable[i][j-1-count].equals(OppositeColor)&& j-1-count >  1)
             {
+
                 if(LayoutTable[i][j-2-count].equals(Color))
                 {
-                    LayoutTable[i][j-1-count] = Color;
+                    for(int k=j-1-count; k<=j-1; k++){
+                        LayoutTable[i][k] = Color;
+                    }
+
                 }
                 count++;
             }
@@ -255,27 +283,44 @@ public class State {
             {
                 if(LayoutTable[i][j+2+count].equals(Color))
                 {
-                    LayoutTable[i][j+1+count] = Color;
-                }
-                count++;
-            }
-            //check down
-            count=0;
-            while(LayoutTable[i-1-count][j].equals(OppositeColor)&& i-1-count >  1)
-            {
-                if(LayoutTable[i-2-count][j].equals(Color))
-                {
-                    LayoutTable[i-1-count][j] = Color;
+                    for(int k=j+1+count; k>=j+1; k--){
+                        LayoutTable[i][k] = Color;
+                    }
+
                 }
                 count++;
             }
             //check up
             count=0;
+            while(LayoutTable[i-1-count][j].equals(OppositeColor)&& i-1-count >  1)
+            {
+                if(LayoutTable[i-2-count][j].equals(Color))
+                {
+                    for(int k=i-1-count; k<=i-1;k++)
+                    {
+                        LayoutTable[k][j] = Color;
+
+                    }
+
+                }
+                count++;
+            }
+            //check down
+            count=0;
             while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
             {
+                if(i+2+count>8)
+                {
+                    break;
+                }
                 if(LayoutTable[i+2+count][j].equals(Color))
                 {
-                    LayoutTable[i+1+count][j] = Color;
+                    for(int k=i+1+count; k>= i+1; k--)
+                    {
+                        LayoutTable[k][j] = Color;
+
+                    }
+
                 }
                 count++;
             }
@@ -283,9 +328,16 @@ public class State {
             count=0;
             while(LayoutTable[i-1-count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i-1-count >  1)
             {
-                if(LayoutTable[i-2-count][j-2-count].equals(Color))
+                int r=0;
+                if(LayoutTable[i-1-count][j-1-count].equals(Color))
                 {
-                    LayoutTable[i-1-count][j-1-count] = Color;
+                    for(int k=i-1-count; k<=i-1;k++)
+                    {
+                        LayoutTable[k][j-1-count+r] = Color;
+                        r++;
+                    }
+
+
                 }
                 count++;
             }
@@ -293,9 +345,20 @@ public class State {
             count=0;
             while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
             {
+                if(j+2+count>8)
+                {
+                    break;
+                }
+
                 if(LayoutTable[i-2-count][j+2+count].equals(Color))
                 {
-                    LayoutTable[i-1-count][j+1+count] = Color;
+                    int r=0;
+                    for(int k =i-1-count; k<=i-1; k++)
+                    {
+                        LayoutTable[k][j+1+count-r] = Color;
+                        r++;
+                    }
+
                 }
                 count++;
             }
@@ -303,9 +366,19 @@ public class State {
             count=0;
             while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
             {
+                if(j+1+count>8)
+                {
+                    break;
+                }
                 if(LayoutTable[i+2+count][j-2-count].equals(Color))
                 {
-                    LayoutTable[i+1+count][j-1-count] = Color;
+                    int r=0;
+                    for(int k= i+1+count;k>=i+1;k--)
+                    {
+                        LayoutTable[k][j-1-count+r] = Color;
+                        r++;
+                    }
+
                 }
                 count++;
             }
@@ -313,9 +386,22 @@ public class State {
             count=0;
             while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
             {
+                if(i+2+count>8)
+                {
+                    break;
+                }
+                if(j+2+count>8)
+                {
+                    break;
+                }
                 if(LayoutTable[i+2+count][j+2+count].equals(Color))
                 {
-                    LayoutTable[i+1+count][j+1+count] = Color;
+                    int r=0;
+                    for(int k = i+1+count;k>=i+1;k-- )
+                    {
+                        LayoutTable[k][j+1+count-r] = Color;
+                        r++;
+                    }
                 }
                 count++;
             }
