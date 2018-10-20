@@ -1,14 +1,14 @@
 
 public class State {
-    private int Width =9 ,Height =9;
+    private int Width =10 ,Height =10;
     private String [][] LayoutTable = new String[Width][Height];
     /**prints the corent state of the game**/
     public void print() {
         System.out .print("-------------------Start-----------------------");
-        for (int row=0; row<Width ; row++)
+        for (int row=0; row<Width-1 ; row++)
         {
             System.out.print("\n");
-            for(int colum=0; colum<Width; colum++){
+            for(int colum=0; colum<Height-1; colum++){
                 System.out.print(LayoutTable[row][colum]+" ");
             }
         }
@@ -123,7 +123,7 @@ public class State {
                     count=0;
                     while(LayoutTable[i][j+1+count].equals(OppositeColor)&& j+1+count <=8)
                     {
-                        if(j+2+count>8)
+                        if(j+2+count>9)
                         {
                             break;
                         }
@@ -145,9 +145,9 @@ public class State {
                     }
                     //check down
                     count=0;
-                    while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
+                    while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1+count <  8)
                     {
-                        if(j+2+count>8)
+                        if(i+2+count>9)
                         {
                             break;
                         }
@@ -171,7 +171,7 @@ public class State {
                     count=0;
                     while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
                     {
-                        if(j+2+count>8)
+                        if(j+2+count>9)
                         {
                             break;
                         }
@@ -185,7 +185,7 @@ public class State {
                     count=0;
                     while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
                     {
-                        if(i+2+count>8)
+                        if(i+2+count>9)
                         {
                             break;
                         }
@@ -199,11 +199,11 @@ public class State {
                     count=0;
                     while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
                     {
-                        if(j+2+count>8)
+                        if(j+2+count>9)
                         {
                             break;
                         }
-                        if(i+2+count>8)
+                        if(i+2+count>9)
                         {
                             break;
                         }
@@ -307,9 +307,9 @@ public class State {
             }
             //check down
             count=0;
-            while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1-count >  1)
+            while(LayoutTable[i+1+count][j].equals(OppositeColor)&& i+1+count < 8)
             {
-                if(i+2+count>8)
+                if(i+2+count>9)
                 {
                     break;
                 }
@@ -329,7 +329,7 @@ public class State {
             while(LayoutTable[i-1-count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i-1-count >  1)
             {
                 int r=0;
-                if(LayoutTable[i-1-count][j-1-count].equals(Color))
+                if(LayoutTable[i-2-count][j-2-count].equals(Color))
                 {
                     for(int k=i-1-count; k<=i-1;k++)
                     {
@@ -345,7 +345,7 @@ public class State {
             count=0;
             while(LayoutTable[i-1-count][j+1+count].equals(OppositeColor)&& j+1+count <=8 && i-1-count >  1)
             {
-                if(j+2+count>8)
+                if(j+2+count>9)
                 {
                     break;
                 }
@@ -366,7 +366,7 @@ public class State {
             count=0;
             while(LayoutTable[i+1+count][j-1-count].equals(OppositeColor)&& j-1-count >  1&& i+1+count <=8)
             {
-                if(j+1+count>8)
+                if(j+1+count>9)
                 {
                     break;
                 }
@@ -386,11 +386,11 @@ public class State {
             count=0;
             while(LayoutTable[i+1+count][j+1+count].equals(OppositeColor)&& j+1+count <= 8&& i+1+count <=8)
             {
-                if(i+2+count>8)
+                if(i+2+count>9)
                 {
                     break;
                 }
-                if(j+2+count>8)
+                if(j+2+count>9)
                 {
                     break;
                 }
