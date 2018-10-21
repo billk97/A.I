@@ -10,6 +10,7 @@ public  class Main {
 
 
     public static State game1 = new State();
+    public static int CountDotForEachPlayer=0;
     public  static void main(String[] args)
     {
         boolean exit = false ;
@@ -37,10 +38,16 @@ public  class Main {
              * player 1 count 1 3 5 7 9 11 13 15 17 19 21 23
              * player 2 count 2 4 6 8 10 12 14 16 18 20 22**/
             if(game1.isFull()){
+                game1.FinalResult();
+                break;
+            }
+            if(CountDotForEachPlayer==2){
+                game1.FinalResult();
                 break;
             }
             if(count %2 == 0)
             {
+
                 /**players 2 turn **/
                 count = PlayerTurn(OppositeColor,count);
             }
@@ -95,6 +102,14 @@ public  class Main {
     {
         System.out.println("Playing: "+Color);
         game1.Predict(Color);
+        int counterDot=game1.CountDot();
+        if(counterDot==0){
+            count++;
+            CountDotForEachPlayer++;
+            System.out.println("You dont have any illegal moves");
+            return count;
+        }
+        CountDotForEachPlayer=0;
         game1.Score();
         game1.print();
         int x=0 , y=0;

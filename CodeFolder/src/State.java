@@ -51,6 +51,8 @@ public class State {
         LayoutTable[4][5] = "X";
         LayoutTable[5][4] = "X";
         LayoutTable[5][5] = "O";
+
+
         return LayoutTable;
     }//end Inotializer
 
@@ -351,18 +353,49 @@ public class State {
                 }
             }
         }
-        if (((counterX+counterO)== 64)&&(counterX>counterO)) {
-            System.out.println("Game over. The winner is X with score "+counterX+":"+counterO);
-            return true;
-        }else if(((counterX+counterO) == 64)&&(counterX>counterO)) {
-            System.out.println("Game over. The winner is O with score "+counterO+":"+counterX);
-            return true;
-        }
-        else if(((counterX+counterO) == 64)&& (counterX==counterO)) {
-            System.out.println("Game over. Its a tie with score "+counterO+":"+counterX);
+        if (((counterX + counterO) == 64)) {
             return true;
         }
         return false;
+
+    }
+
+    public int CountDot() {
+        int counterDot = 0;
+        for (int i = 0; i < Width; i++) {
+            for (int j = 0; j < Height; j++) {
+                if (LayoutTable[i][j].equals(".")) {
+                    counterDot++;
+                }
+            }
+        }
+        return counterDot;
+    }
+
+    public void FinalResult() {
+        int counterX = 0;
+        int counterO = 0;
+        for (int row = 0; row < Width - 1; row++) {
+            for (int colum = 0; colum < Height - 1; colum++) {
+                if (LayoutTable[row][colum].equals("X")) {
+                    counterX++;
+                }
+                if (LayoutTable[row][colum].equals("O")) {
+                    counterO++;
+                }
+            }
+        }
+        if (counterX > counterO) {
+            System.out.println("Game over. The winner is X with score " + counterX + ":" + counterO);
+
+        } else if (counterX < counterO) {
+            System.out.println("Game over. The winner is O with score " + counterO + ":" + counterX);
+
+        } else if (counterX == counterO) {
+            System.out.println("Game over. Its a tie with score " + counterO + ":" + counterX);
+
+        }
+
 
     }
 
