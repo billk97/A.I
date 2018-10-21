@@ -55,7 +55,7 @@ public  class Main {
             {
                 count = PlayerTurn(Color,count);
             }
-          
+
         }//end while
         reader.close();
     }//end main
