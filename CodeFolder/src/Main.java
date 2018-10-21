@@ -36,6 +36,9 @@ public  class Main {
              * if its the first players turn then count mod 2 should not be 0
              * player 1 count 1 3 5 7 9 11 13 15 17 19 21 23
              * player 2 count 2 4 6 8 10 12 14 16 18 20 22**/
+            if(game1.isFull()){
+                break;
+            }
             if(count %2 == 0)
             {
                 /**players 2 turn **/
