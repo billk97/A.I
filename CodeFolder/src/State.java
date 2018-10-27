@@ -5,7 +5,7 @@ public class State {
     private int score;
 
     /**
-     * prints the corent state of the game
+     * prints the current state of the game
      **/
     public void print() {
         System.out.print("-------------------Start-----------------------");
@@ -52,10 +52,8 @@ public class State {
         LayoutTable[4][5] = "X";
         LayoutTable[5][4] = "X";
         LayoutTable[5][5] = "O";
-
-
         return LayoutTable;
-    }//end Inotializer
+    }//end Initializer
 
     /**
      * allows the user to to add an element to the the game
@@ -108,8 +106,10 @@ public class State {
         }
 
         int count;
+        /**two for to cross/check the hole table **/
         for (int i = 1; i < Width; i++) {
             for (int j = 1; j < Height; j++) {
+                //every time it finds the color its given
                 if (LayoutTable[i][j].equals(Color)) {
                     //  check the left
                     count = 0;
@@ -174,11 +174,10 @@ public class State {
                             LayoutTable[i + 2 + count][j + 2 + count] = ".";
                         }
                         count++;
-                    }
-
-                }
-            }
-        }
+                    }//end while
+                }//end if
+            }//end for(j)
+        }//end for(i)
 
     }//end Predict
 
@@ -208,28 +207,29 @@ public class State {
     }
 
     /**
-     * this function is responsible of flipping or reversing the Elements regarding reversi rules
-     * Rules
+     * this function is responsible of flipping or reversing the Elements regarding
+     * reversi rules Rules same concept with the Predict
      **/
 
     public void FlipElements(int i, int j, String Color) {
         int count;
-        String OppositeColor;
+        String OppositeColor; //local variable for opposite color
         if (Color.equals("O")) {
             OppositeColor = "X";
         } else {
             OppositeColor = "O";
         }
+        //every time it finds the color its given
         if (LayoutTable[i][j].equals(Color)) {
             //check left
             count = 0;
             while (LayoutTable[i][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1) {
-
+                //if it finds a same Color it stops
                 if (LayoutTable[i][j - 2 - count].equals(Color)) {
+                    //changer every color between Color and Color
                     for (int k = j - 1 - count; k <= j - 1; k++) {
                         LayoutTable[i][k] = Color;
                     }
-
                 }
                 count++;
             }
@@ -322,11 +322,9 @@ public class State {
                     }
                 }
                 count++;
-            }
-        }
-
-
-    }
+            }//end while
+        }//enf if
+    }// end FlipElements
 
 
     /**
@@ -340,27 +338,32 @@ public class State {
             return false;
 
     }//end isInBorder
-
+    /**this function checks if the table is Full and all rows
+     * and columns are occupied **/
     public boolean isFull() {
         int counterX = 0;
         int counterO = 0;
+        //checks the hole table
         for (int row = 0; row < Width - 1; row++) {
             for (int colum = 0; colum < Height - 1; colum++) {
                 if (LayoutTable[row][colum].equals("X")) {
+                    //increases every time it finds X
                     counterX++;
                 }
                 if (LayoutTable[row][colum].equals("O")) {
+                    //increases every time it finds O
                     counterO++;
                 }
             }
         }
+        //check to see if the sum is = 64 = 8*8
         if (((counterX + counterO) == 64)) {
             return true;
         }
         return false;
+    }//end isFull
 
-    }
-
+    /**this function counts every dot(.)(next Move) in the table  **/
     public int CountDot() {
         int counterDot = 0;
         for (int i = 0; i < Width; i++) {
@@ -371,7 +374,7 @@ public class State {
             }
         }
         return counterDot;
-    }
+    }// end CountDot
 
     public void FinalResult() {
         int counterX = 0;
@@ -396,16 +399,18 @@ public class State {
             System.out.println("Game over. Its a tie with score " + counterO + ":" + counterX);
 
         }
+    }//end FinalResult
 
-
-    }
     // O gets the positive ++
     // X gets the negative --
+    /****/
     private void heuristic1()//mavra perisotera apo aspra
     {
         CalculateHeuresticScore();
     }
-    //calculate who has the most elements int the game. O=+1 and for X=-1
+    /**calculate who has the most elements int the game. O=+1 and for X=-1
+     * if the result is positive it means that O is wining
+     * if negative X IS wining**/
     private void CalculateHeuresticScore(){
         for (int i = 0; i < Width; i++) {
             for (int j = 0; j < Height; j++) {
@@ -416,7 +421,8 @@ public class State {
                 }
             }
         }
-    }
+    }//endCalculateHeuristicScore
+
     //gives points when you have the outline
     private  void find(int a,int b)
     {
