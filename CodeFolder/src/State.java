@@ -448,4 +448,32 @@ public class State {
             score=score-100;
         }
     }
+
+    //finds the vulnerable positions
+    private void findVulnPositions(int a,int b){
+        if(LayoutTable[a][b].equals("O"))
+        {
+            score=-25;
+        }
+        else if(LayoutTable[a][b].equals("X")){
+            score=25;
+        }
+    }
+
+    //heuristic about the vulnerable positions
+    private void heuristic4()
+    {
+        for(int i=2;i<Width-1;i++){
+            findVulnPositions(1,i);
+            findVulnPositions(2,i);
+            findVulnPositions(7,i);
+            findVulnPositions(8,i);
+            findVulnPositions(i,1);
+            findVulnPositions(i,2);
+            findVulnPositions(i,7);
+            findVulnPositions(i,8);
+        }
+
+
+    }
 }
