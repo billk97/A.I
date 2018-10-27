@@ -418,49 +418,35 @@ public class State {
         }
     }
     //gives points when you have the outline
+    private  void find(int a,int b)
+    {
+        if(LayoutTable[a][b].equals("O"))
+        {
+            score=+10;
+        }
+        else if(LayoutTable[a][b].equals("X")){
+            score=-10;
+        }
+    }
     private void Heuristic3()
     {
         for (int i=2; i<Width-1; i++)
         {
-            if(LayoutTable[1][i].equals("O"))
-            {
-                score=+10;
-            }
-            else if(LayoutTable[1][i].equals("X")){
-                score=-10;
-            }
+            find(1,i);
         }
         for (int i=2; i<Width-1; i++)
         {
-            if(LayoutTable[i][1].equals("O"))
-            {
-                score=+10;
-            }
-            else if(LayoutTable[i][1].equals("X")){
-                score=-10;
-            }
+            find(i,1);
         }
         for (int i=2; i<Width-1; i++)
         {
-            if(LayoutTable[8][i].equals("O"))
-            {
-                score=+10;
-            }
-            else if(LayoutTable[8][i].equals("X")){
-                score=-10;
-            }
+            find(8,i);
         }
         for (int i=2; i<Width-1; i++)
         {
-            if(LayoutTable[i][8].equals("O"))
-            {
-                score=+10;
-            }
-            else if(LayoutTable[i][8].equals("X")){
-                score=-10;
-            }
+            find(i,8);
         }
-
+//comment
     }
 
     private void heuristic2()// koitaw gonies
