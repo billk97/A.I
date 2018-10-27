@@ -419,4 +419,15 @@ public class State {
         }
     }
 
+    private void heuristic2()// koitaw gonies
+    {
+        if (LayoutTable[1][1].equals("O")||LayoutTable[8][8].equals("O")||LayoutTable[1][8].equals("O")||LayoutTable[8][1].equals("O")) {
+            score=score+100;
+        } else if (LayoutTable[1][1].equals("X")||LayoutTable[8][8].equals("X")||LayoutTable[1][8].equals("X")||LayoutTable[8][1].equals("X")) {
+            score=score-100;
+        }
+
+
+    }
+
 }
