@@ -2,17 +2,18 @@ import java.util.Scanner;
 import java.util.*;
 import  java.io.*;
 public class Play {
-    public  State game1 = new State();
-    public  int CountDotForEachPlayer=0;
+    public  State game1 = new State();//creation of an Object State named game1
+    public  int CountDotForEachPlayer=0;//a counter helps determine which player turn it is
     public  void play()
     {
         boolean exit = false ;
         game1.Initializer();
+        /**by Color we mean ether X od O **/
         String Color;
         Scanner reader = new Scanner(System.in);
         System.out.println("choose X or O: ");
         Color = reader.nextLine();
-        String OppositeColor;
+        String OppositeColor;//the opposite color ex. Color=O --> OppositeColor=X
         /**checks if given value is a desired value**/
         while(!(Color.equals("O"))&&!(Color.equals("X")))
         {
@@ -27,16 +28,16 @@ public class Play {
         while(exit == false)
         {
             /**scarifies which players turn it is by dividing with 2
-             * if its the first players turn then count mod 2 should not be 0
+             * if it's the first players turn then count mod 2 should not be 0
              * player 1 count 1 3 5 7 9 11 13 15 17 19 21 23
              * player 2 count 2 4 6 8 10 12 14 16 18 20 22**/
             if(game1.isFull()){
-                game1.FinalResult();
-                break;
+                game1.FinalResult();//checks if game is over
+                break;//exits
             }
             if(CountDotForEachPlayer==2){
-                game1.FinalResult();
-                break;
+                game1.FinalResult();//checks if game is over
+                break;//exits
             }
             if(count %2 == 0)
             {
@@ -46,9 +47,9 @@ public class Play {
             }
             else
             {
+                /**players 1 turn **/
                 count = PlayerTurn(Color,count);
             }
-
         }//end while
         reader.close();
     }//end Play
@@ -74,6 +75,7 @@ public class Play {
         }
         return y;
     }//end of TryCachFunction
+    /**nothing  spacial self explanatory **/
     private  String FindOpositeColore(String Color)
     {
         String OppositeColor="O";
@@ -87,15 +89,19 @@ public class Play {
         }
         return OppositeColor;
     }//end of FindOpositeColore
+    /**gets called in the play function every time its time to make a move**/
     private  int PlayerTurn(String Color ,int count )
     {
         System.out.println("Playing: "+Color);
-        game1.Predict(Color);
-        int counterDot=game1.CountDot();
+        game1.Predict(Color);//gives the legal (game rules) next possible moves for the Color (puts a dot in that place)
+        int counterDot=game1.CountDot();//count how many dots(next possible moves) are inside the table
+        /**if there are no more . in the table for the player it means
+         * there are no more valued moves  for him to play
+         *prints the appropriate message and returns **/
         if(counterDot==0){
             count++;
             CountDotForEachPlayer++;
-            System.out.println("You dont have any moves");
+            System.out.println("You don't have any moves");
             return count;
         }
         CountDotForEachPlayer=0;
@@ -122,6 +128,6 @@ public class Play {
             System.out.println("Move not valid please retry !");
         }
         return count;
-    }
+    }//end PlayerTurn
 
-}
+}//end Play
