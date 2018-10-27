@@ -447,7 +447,7 @@ public class State {
         } else if (LayoutTable[1][1].equals("X")||LayoutTable[8][8].equals("X")||LayoutTable[1][8].equals("X")||LayoutTable[8][1].equals("X")) {
             score=score-100;
         }
-    }
+    }//end
 
     //finds the vulnerable positions
     private void findVulnPositions(int a,int b){
@@ -458,7 +458,7 @@ public class State {
         else if(LayoutTable[a][b].equals("X")){
             score=25;
         }
-    }
+    }//end findVulnPositions
 
     //heuristic about the vulnerable positions
     private void heuristic4()
@@ -473,7 +473,5 @@ public class State {
             findVulnPositions(i,7);
             findVulnPositions(i,8);
         }
-
-
-    }
+    }//end heuristic4
 }
