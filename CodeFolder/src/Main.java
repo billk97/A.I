@@ -106,7 +106,7 @@ public  class Main {
         if(counterDot==0){
             count++;
             CountDotForEachPlayer++;
-            System.out.println("You dont have any illegal moves");
+            System.out.println("You dont have any moves");
             return count;
         }
         CountDotForEachPlayer=0;

@@ -2,6 +2,7 @@
 public class State {
     private int Width = 10, Height = 10;
     private String[][] LayoutTable = new String[Width][Height];
+    private int score;
 
     /**
      * prints the corent state of the game
@@ -397,6 +398,25 @@ public class State {
         }
 
 
+    }
+
+    private void heuristic1()//mavra perisotera apo aspra
+    {
+
+        CalculateHeuresticScore();
+
+    }
+    //calculate who has the most elements int the game. O=+1 and for X=-1
+    private void CalculateHeuresticScore(){
+        for (int i = 0; i < Width; i++) {
+            for (int j = 0; j < Height; j++) {
+                if (LayoutTable[i][j].equals("O")) {
+                    score++;
+                } else if (LayoutTable[i][j].equals("X")) {
+                    score--;
+                }
+            }
+        }
     }
 
 }
