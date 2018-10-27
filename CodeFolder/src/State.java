@@ -399,12 +399,11 @@ public class State {
 
 
     }
-
+    // O gets the positive ++
+    // X gets the negative --
     private void heuristic1()//mavra perisotera apo aspra
     {
-
         CalculateHeuresticScore();
-
     }
     //calculate who has the most elements int the game. O=+1 and for X=-1
     private void CalculateHeuresticScore(){
@@ -418,6 +417,51 @@ public class State {
             }
         }
     }
+    //gives points when you have the outline
+    private void Heuristic3()
+    {
+        for (int i=2; i<Width-1; i++)
+        {
+            if(LayoutTable[1][i].equals("O"))
+            {
+                score=+10;
+            }
+            else if(LayoutTable[1][i].equals("X")){
+                score=-10;
+            }
+        }
+        for (int i=2; i<Width-1; i++)
+        {
+            if(LayoutTable[i][1].equals("O"))
+            {
+                score=+10;
+            }
+            else if(LayoutTable[i][1].equals("X")){
+                score=-10;
+            }
+        }
+        for (int i=2; i<Width-1; i++)
+        {
+            if(LayoutTable[8][i].equals("O"))
+            {
+                score=+10;
+            }
+            else if(LayoutTable[8][i].equals("X")){
+                score=-10;
+            }
+        }
+        for (int i=2; i<Width-1; i++)
+        {
+            if(LayoutTable[i][8].equals("O"))
+            {
+                score=+10;
+            }
+            else if(LayoutTable[i][8].equals("X")){
+                score=-10;
+            }
+        }
+
+    }
 
     private void heuristic2()// koitaw gonies
     {
@@ -426,8 +470,5 @@ public class State {
         } else if (LayoutTable[1][1].equals("X")||LayoutTable[8][8].equals("X")||LayoutTable[1][8].equals("X")||LayoutTable[8][1].equals("X")) {
             score=score-100;
         }
-
-
     }
-
 }
