@@ -433,17 +433,8 @@ public class State {
         for (int i=2; i<Width-1; i++)
         {
             find(1,i);
-        }
-        for (int i=2; i<Width-1; i++)
-        {
             find(i,1);
-        }
-        for (int i=2; i<Width-1; i++)
-        {
             find(8,i);
-        }
-        for (int i=2; i<Width-1; i++)
-        {
             find(i,8);
         }
 //comment
