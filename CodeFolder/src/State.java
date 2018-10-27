@@ -433,7 +433,8 @@ public class State {
         else if(LayoutTable[a][b].equals("X")){
             score=-10;
         }
-    }
+    }//end find
+    //gives points when you have the outline
     private void Heuristic3()
     {
         for (int i=2; i<Width-1; i++)
@@ -443,18 +444,22 @@ public class State {
             find(8,i);
             find(i,8);
         }
-//comment
-    }
+    }// end Heuristic3
 
-    private void heuristic2()// koitaw gonies
+    /**in reverci the corners are the most important to win sow
+     * if X or Y is plays a move in a corner
+     * the score goose up by a lot  **/
+    private void heuristic2()
     {
         if (LayoutTable[1][1].equals("O")||LayoutTable[8][8].equals("O")||LayoutTable[1][8].equals("O")||LayoutTable[8][1].equals("O")) {
             score=score+100;
         } else if (LayoutTable[1][1].equals("X")||LayoutTable[8][8].equals("X")||LayoutTable[1][8].equals("X")||LayoutTable[8][1].equals("X")) {
             score=score-100;
         }
-    }//end
+    }//end heuristic2
 
+    /**in reverci the corners are the most important to win sow
+    * the positions that unlock the corners are the wurst moves that someone can play**/
     //finds the vulnerable positions
     private void findVulnPositions(int a,int b){
         if(LayoutTable[a][b].equals("O"))
