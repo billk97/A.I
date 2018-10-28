@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 
 public class State {
     private int Width = 10, Height = 10;
-    private String[][] LayoutTable = new String[Width][Height];
+    private String[][] LayoutTable ;
     private int score;
 
     /**
@@ -485,4 +486,45 @@ public class State {
             findVulnPositions(i,8);
         }
     }//end heuristic4
+
+    //ftiaxnei ta paidia kai ta emfanizei
+    public ArrayList<State> getChildren(String Color)
+    {
+        ArrayList<State> children = new ArrayList<State>();
+        for(int row=0; row<Width; row++)
+        {
+            for(int col=0; col<Height; col++)
+            {
+                if(LayoutTable[row][col].equals("."))
+                {
+                    State child = new State(this); //ftiaxnw kainoyrgio state
+                    child.DeleteDot();              // afth einai h diadikasia
+                    child.addElement(row,col,Color);  // otan vazw kanoyrgio pioni
+                    child.FlipElements(row,col,Color); //sto paixnidi. etsi paragw epomenes kinhseis
+                    children.add(child);         //prosthetw sthn array list ta paidia
+                }
+            }
+        }
+        for(int k=0;k<children.size();k++){
+            children.get(k).print();               //emfanizw ta paidia
+        }
+        return children;
+    }
+    //copy constractor to xrhsimopoiw sth getChildren gia na parago tis pithanes kinhseis
+    public State (State state)
+    {
+        LayoutTable = new String[Width][Height];
+        for(int i=0; i<Width; i++)
+        {
+            for(int j=0; j<Height; j++)
+            {
+                LayoutTable[i][j] = state.LayoutTable[i][j];
+            }
+        }
+    }
+    // o kenos constractoras o opoios arxikopoiei to pinaka mas
+    public State ()
+    {
+        LayoutTable = new String[Width][Height];
+    }
 }
