@@ -502,8 +502,8 @@ public class State {
     //ftiaxnei ta paidia kai ta emfanizei
     public ArrayList<State> getChildren(String Color) {
         ArrayList<State> children = new ArrayList<State>();
-        for (int row = 0; row < Width; row++) {
-            for (int col = 0; col < Height; col++) {
+        for (int row = 0; row < Width-1; row++) {
+            for (int col = 0; col < Height-1; col++) {
                 if (LayoutTable[row][col].equals(".")) {
                     State child = new State(this); //ftiaxnw kainoyrgio state
                     child.DeleteDot();              // afth einai h diadikasia
@@ -513,10 +513,10 @@ public class State {
                 }
             }
         }
-        for (int k = 0; k < children.size(); k++) {
+       /* for (int k = 0; k < children.size(); k++) {
             children.get(k).evaluate();
             children.get(k).print();               //emfanizw ta paidia
-        }
+        }*/
         return children;
     }
 

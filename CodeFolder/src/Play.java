@@ -4,6 +4,8 @@ import  java.io.*;
 public class Play {
     public  State game1 = new State();//creation of an Object State named game1
     public  int CountDotForEachPlayer=0;//a counter helps determine which player turn it is
+    GamePlayer gamePlayer;
+    int maxDepth = 3;
     public  void play()
     {
         boolean exit = false ;
@@ -22,6 +24,7 @@ public class Play {
         }
         /**creates the opposite color (the other player)**/
         OppositeColor=FindOpositeColore(Color);
+        gamePlayer= new GamePlayer(maxDepth,OppositeColor);
         /**useful its a simple counter**/
         int count=1;
 
@@ -43,7 +46,7 @@ public class Play {
             {
 
                 /**players 2 turn **/
-                count = PlayerTurn(OppositeColor,count);
+                count = AITurn(OppositeColor,count);
             }
             else
             {
@@ -90,10 +93,35 @@ public class Play {
         return OppositeColor;
     }//end of FindOpositeColore
     /**gets called in the play function every time its time to make a move**/
+
     private int AITurn(String Color,int count)
     {
+        System.out.println("Playing: "+Color);
+        game1.Predict(Color);//gives the legal (game rules) next possible moves for the Color (puts a dot in that place)
+        int counterDot=game1.CountDot();//count how many dots(next possible moves) are inside the table
+        /**if there are no more . in the table for the player it means
+         * there are no more valued moves  for him to play
+         *prints the appropriate message and returns **/
+        if(counterDot==0){
+            count++;
+            CountDotForEachPlayer++;
+            System.out.println("You don't have any moves");
+            return count;
+        }
+        CountDotForEachPlayer=0;
+        game1.Score();
+        game1.print();
+        int x=0 , y=0;
+
+        Move move = gamePlayer.MiniMax(game1);
+        game1.DeleteDot();
+        game1.addElement(move.getRow(),move.getCol(),Color);
+        game1.FlipElements(move.getRow(),move.getCol(),Color);
+        count ++;
+
         return count;
     }
+
     private  int PlayerTurn(String Color ,int count )
     {
         System.out.println("Playing: "+Color);
