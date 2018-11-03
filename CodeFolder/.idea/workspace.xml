@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="915daabb-e4cf-44de-83e5-e6634a54de93" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeFolder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CodeFolder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CodeFolder/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeFolder/State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
     </list>
@@ -12,6 +13,38 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/State.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="639">
+                    <caret line="476" column="12" selection-start-line="476" selection-start-column="12" selection-end-line="476" selection-end-column="12" />
+                    <folding>
+                      <element signature="e#788#789#0" expanded="true" />
+                      <element signature="e#816#817#0" expanded="true" />
+                      <element signature="e#906#907#0" expanded="true" />
+                      <element signature="e#935#936#0" expanded="true" />
+                      <element signature="e#981#982#0" expanded="true" />
+                      <element signature="e#1014#1015#0" expanded="true" />
+                      <element signature="e#18311#18318#0" expanded="true" />
+                      <element signature="e#19860#19861#0" expanded="true" />
+                      <element signature="e#19891#19892#0" expanded="true" />
+                      <element signature="e#20148#20149#0" expanded="true" />
+                      <element signature="e#20186#20187#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="836927936">
@@ -63,23 +96,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="20" />
+          <entry key="groovy" value="2" />
+          <entry key="java" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="20" />
+          <entry key="Groovy" value="2" />
+          <entry key="JAVA" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7985" />
+          <entry key="groovy" value="257" />
+          <entry key="java" value="8657" />
           <entry key="txt" value="610" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7985" />
+          <entry key="Groovy" value="257" />
+          <entry key="JAVA" value="8657" />
           <entry key="PLAIN_TEXT" value="610" />
         </counts>
       </usages-collector>
@@ -132,51 +169,56 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Play.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="107" column="13" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/State.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="531" column="8" selection-start-line="531" selection-start-column="8" selection-end-line="531" selection-end-column="8" />
-              <folding>
-                <element signature="e#1689#1690#0" expanded="true" />
-                <element signature="e#1730#1731#0" expanded="true" />
-                <element signature="e#17542#17549#0" expanded="true" />
-                <element signature="e#18922#18923#0" expanded="true" />
-                <element signature="e#18977#18978#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Play.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="799">
+                  <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Tests/StateTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="381">
+                  <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -194,8 +236,10 @@
         <option value="$PROJECT_DIR$/src/MainInterface.java" />
         <option value="$PROJECT_DIR$/src/SuperMain.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/State.java" />
         <option value="$PROJECT_DIR$/src/Play.java" />
+        <option value="$PROJECT_DIR$/Tests/StateTest.groovy" />
+        <option value="$PROJECT_DIR$/Tests/StateTest.java" />
+        <option value="$PROJECT_DIR$/src/State.java" />
       </list>
     </option>
   </component>
@@ -215,7 +259,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,16 +281,30 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541251033851" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541270826734" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../a" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -260,7 +318,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.StateTest.predictLeft">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="CodeFolder" />
@@ -268,9 +326,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StateTest.predictLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CodeFolder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
+      <option name="METHOD_NAME" value="predictLeft" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StateTest.testPredictleft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CodeFolder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
+      <option name="METHOD_NAME" value="testPredictleft" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.StateTest.testPredictleft" />
+      <item itemvalue="JUnit.StateTest.predictLeft" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StateTest.predictLeft" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.StateTest.testPredictleft" />
       </list>
     </recent_temporary>
   </component>
@@ -421,6 +506,29 @@
     <option name="localTasksCounter" value="20" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 30m 56s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 32m 19s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 32m 50s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 33m 33s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 34m 05s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 34m 48s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 35m 15s.xml">
+      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -432,8 +540,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.29001075" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.081023455" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -442,15 +551,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23299888" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22234273" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998884" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32887402" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.13758865" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4986577" weight="0.40356743" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.2831661" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.4986577" visible="true" weight="0.023861172" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.20932755" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -514,33 +623,56 @@
     <entry file="file://$PROJECT_DIR$/src/MainInterface.java" />
     <entry file="file://$PROJECT_DIR$/src/SuperMain.java" />
     <entry file="file://$PROJECT_DIR$/src/GamePlayer.java" />
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Play.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="13" />
+        <state relative-caret-position="799">
+          <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/StateTest.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/StateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="531" column="8" selection-start-line="531" selection-start-column="8" selection-end-line="531" selection-end-column="8" />
+        <state relative-caret-position="639">
+          <caret line="476" column="12" selection-start-line="476" selection-start-column="12" selection-end-line="476" selection-end-column="12" />
           <folding>
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1730#1731#0" expanded="true" />
-            <element signature="e#17542#17549#0" expanded="true" />
-            <element signature="e#18922#18923#0" expanded="true" />
-            <element signature="e#18977#18978#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#18311#18318#0" expanded="true" />
+            <element signature="e#19860#19861#0" expanded="true" />
+            <element signature="e#19891#19892#0" expanded="true" />
+            <element signature="e#20148#20149#0" expanded="true" />
+            <element signature="e#20186#20187#0" expanded="true" />
           </folding>
         </state>
       </provider>

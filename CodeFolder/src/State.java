@@ -34,7 +34,10 @@ public class State {
     public int getHeight() {
         return Height;
     }
-
+    public String [][] getLayoutTable()
+    {
+        return LayoutTable;
+    }
     /**
      * runs at the start of the game and initialies the game State
      **/
@@ -464,17 +467,30 @@ public class State {
         }
     }// end Heuristic3
 
+    private void add100(int x,int y,String Color)
+    {
+        if (LayoutTable[x][y].equals(Color) && Color.equals("X")) {
+            score = score - 100;
+        }
+        else if (LayoutTable[x][y].equals(Color) && Color.equals("X"))
+        {
+            score = score + 100;
+        }
+    }
     /**
      * in reverci the corners are the most important to win sow
      * if X or Y is plays a move in a corner
      * the score goose up by a lot
      **/
     private void heuristic2() {
-        if (LayoutTable[1][1].equals("O") || LayoutTable[8][8].equals("O") || LayoutTable[1][8].equals("O") || LayoutTable[8][1].equals("O")) {
-            score = score + 100;
-        } else if (LayoutTable[1][1].equals("X") || LayoutTable[8][8].equals("X") || LayoutTable[1][8].equals("X") || LayoutTable[8][1].equals("X")) {
-            score = score - 100;
-        }
+        add100(1,1,"O");
+        add100(8,8,"O");
+        add100(1,8,"O");
+        add100(8,1,"O");
+        add100(1,1,"X");
+        add100(8,8,"X");
+        add100(1,8,"X");
+        add100(8,1,"X");
     }//end heuristic2
 
     /**
