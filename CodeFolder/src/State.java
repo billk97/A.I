@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class State {
     private int Width = 10, Height = 10;
-    private String[][] LayoutTable ;
+    private String[][] LayoutTable;
     private int score;
 
     /**
@@ -339,8 +339,11 @@ public class State {
             return false;
 
     }//end isInBorder
-    /**this function checks if the table is Full and all rows
-     * and columns are occupied **/
+
+    /**
+     * this function checks if the table is Full and all rows
+     * and columns are occupied
+     **/
     public boolean isFull() {
         int counterX = 0;
         int counterO = 0;
@@ -364,7 +367,9 @@ public class State {
         return false;
     }//end isFull
 
-    /**this function counts every dot(.)(next Move) in the table  **/
+    /**
+     * this function counts every dot(.)(next Move) in the table
+     **/
     public int CountDot() {
         int counterDot = 0;
         for (int i = 0; i < Width; i++) {
@@ -404,15 +409,19 @@ public class State {
 
     // O gets the positive ++
     // X gets the negative --
+
     /****/
     private void heuristic1()//mavra perisotera apo aspra
     {
         CalculateHeuresticScore();
     }
-    /**calculate who has the most elements int the game. O=+1 and for X=-1
+
+    /**
+     * calculate who has the most elements int the game. O=+1 and for X=-1
      * if the result is positive it means that O is wining
-     * if negative X IS wining**/
-    private void CalculateHeuresticScore(){
+     * if negative X IS wining
+     **/
+    private void CalculateHeuresticScore() {
         for (int i = 0; i < Width; i++) {
             for (int j = 0; j < Height; j++) {
                 if (LayoutTable[i][j].equals("O")) {
@@ -425,106 +434,115 @@ public class State {
     }//endCalculateHeuristicScore
 
     //gives points when you have the outline
-    private  void find(int a,int b)
-    {
-        if(LayoutTable[a][b].equals("O"))
-        {
-            score=+10;
-        }
-        else if(LayoutTable[a][b].equals("X")){
-            score=-10;
+    private void find(int a, int b) {
+        if (LayoutTable[a][b].equals("O")) {
+            score += 10;
+        } else if (LayoutTable[a][b].equals("X")) {
+            score -= 10;
         }
     }//end find
+
     //gives points when you have the outline
-    private void Heuristic3()
-    {
-        for (int i=2; i<Width-1; i++)
-        {
-            find(1,i);
-            find(i,1);
-            find(8,i);
-            find(i,8);
+    private void heuristic3() {
+        for (int i = 2; i < Width - 1; i++) {
+            find(1, i);
+            find(i, 1);
+            find(8, i);
+            find(i, 8);
         }
     }// end Heuristic3
 
-    /**in reverci the corners are the most important to win sow
+    /**
+     * in reverci the corners are the most important to win sow
      * if X or Y is plays a move in a corner
-     * the score goose up by a lot  **/
-    private void heuristic2()
-    {
-        if (LayoutTable[1][1].equals("O")||LayoutTable[8][8].equals("O")||LayoutTable[1][8].equals("O")||LayoutTable[8][1].equals("O")) {
-            score=score+100;
-        } else if (LayoutTable[1][1].equals("X")||LayoutTable[8][8].equals("X")||LayoutTable[1][8].equals("X")||LayoutTable[8][1].equals("X")) {
-            score=score-100;
+     * the score goose up by a lot
+     **/
+    private void heuristic2() {
+        if (LayoutTable[1][1].equals("O") || LayoutTable[8][8].equals("O") || LayoutTable[1][8].equals("O") || LayoutTable[8][1].equals("O")) {
+            score = score + 100;
+        } else if (LayoutTable[1][1].equals("X") || LayoutTable[8][8].equals("X") || LayoutTable[1][8].equals("X") || LayoutTable[8][1].equals("X")) {
+            score = score - 100;
         }
     }//end heuristic2
 
-    /**in reverci the corners are the most important to win sow
-    * the positions that unlock the corners are the wurst moves that someone can play**/
+    /**
+     * in reverci the corners are the most important to win sow
+     * the positions that unlock the corners are the wurst moves that someone can play
+     **/
     //finds the vulnerable positions
-    private void findVulnPositions(int a,int b){
-        if(LayoutTable[a][b].equals("O"))
-        {
-            score=-25;
-        }
-        else if(LayoutTable[a][b].equals("X")){
-            score=25;
+    private void findVulnPositions(int a, int b) {
+        if (LayoutTable[a][b].equals("O")) {
+            score -= 25;
+        } else if (LayoutTable[a][b].equals("X")) {
+            score += 25;
         }
     }//end findVulnPositions
 
     //heuristic about the vulnerable positions
-    private void heuristic4()
-    {
-        for(int i=2;i<Width-1;i++){
-            findVulnPositions(1,i);
-            findVulnPositions(2,i);
-            findVulnPositions(7,i);
-            findVulnPositions(8,i);
-            findVulnPositions(i,1);
-            findVulnPositions(i,2);
-            findVulnPositions(i,7);
-            findVulnPositions(i,8);
-        }
+    private void heuristic4() {
+
+        findVulnPositions(1, 2);
+        findVulnPositions(2, 1);
+        findVulnPositions(2, 2);
+        findVulnPositions(1, 7);
+        findVulnPositions(2, 7);
+        findVulnPositions(2, 8);
+        findVulnPositions(7, 1);
+        findVulnPositions(7, 2);
+        findVulnPositions(8, 2);
+        findVulnPositions(7, 7);
+        findVulnPositions(8, 7);
+        findVulnPositions(7, 8);
     }//end heuristic4
 
     //ftiaxnei ta paidia kai ta emfanizei
-    public ArrayList<State> getChildren(String Color)
-    {
+    public ArrayList<State> getChildren(String Color) {
         ArrayList<State> children = new ArrayList<State>();
-        for(int row=0; row<Width; row++)
-        {
-            for(int col=0; col<Height; col++)
-            {
-                if(LayoutTable[row][col].equals("."))
-                {
+        for (int row = 0; row < Width; row++) {
+            for (int col = 0; col < Height; col++) {
+                if (LayoutTable[row][col].equals(".")) {
                     State child = new State(this); //ftiaxnw kainoyrgio state
                     child.DeleteDot();              // afth einai h diadikasia
-                    child.addElement(row,col,Color);  // otan vazw kanoyrgio pioni
-                    child.FlipElements(row,col,Color); //sto paixnidi. etsi paragw epomenes kinhseis
+                    child.addElement(row, col, Color);  // otan vazw kanoyrgio pioni
+                    child.FlipElements(row, col, Color); //sto paixnidi. etsi paragw epomenes kinhseis
                     children.add(child);         //prosthetw sthn array list ta paidia
                 }
             }
         }
-        for(int k=0;k<children.size();k++){
+        for (int k = 0; k < children.size(); k++) {
+            children.get(k).evaluate();
             children.get(k).print();               //emfanizw ta paidia
         }
         return children;
     }
+
     //copy constractor to xrhsimopoiw sth getChildren gia na parago tis pithanes kinhseis
-    public State (State state)
-    {
+    public State(State state) {
+        score=0;
         LayoutTable = new String[Width][Height];
-        for(int i=0; i<Width; i++)
-        {
-            for(int j=0; j<Height; j++)
-            {
+        for (int i = 0; i < Width; i++) {
+            for (int j = 0; j < Height; j++) {
                 LayoutTable[i][j] = state.LayoutTable[i][j];
             }
         }
     }
+
     // o kenos constractoras o opoios arxikopoiei to pinaka mas
-    public State ()
-    {
+    public State() {
         LayoutTable = new String[Width][Height];
     }
+
+    public void evaluate(){
+        heuristic1();
+        heuristic2();
+        heuristic3();
+        heuristic4();
+        System.out.println("to score sthn evaluate einai: "+score);
+
+
+
+
+    }
+
+
 }
