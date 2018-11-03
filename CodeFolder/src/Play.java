@@ -90,6 +90,10 @@ public class Play {
         return OppositeColor;
     }//end of FindOpositeColore
     /**gets called in the play function every time its time to make a move**/
+    private int AITurn(String Color,int count)
+    {
+        return count;
+    }
     private  int PlayerTurn(String Color ,int count )
     {
         System.out.println("Playing: "+Color);
