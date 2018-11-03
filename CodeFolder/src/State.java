@@ -509,7 +509,10 @@ public class State {
         }
     }//end findVulnPositions
 
-    //heuristic about the vulnerable positions
+    /**evaluates negative the vulnerable positions
+     * because they unlock the corners
+     * **/
+    //TODO this can be optimized when the corners are already  possessed they no longer are use full
     private void heuristic4() {
 
         findVulnPositions(1, 2);
@@ -526,36 +529,43 @@ public class State {
         findVulnPositions(7, 8);
     }//end heuristic4
 
-    //ftiaxnei ta paidia kai ta emfanizei
+    /**This function creates the child's and prints them**/
     public ArrayList<State> getChildren(String Color) {
+        /**if for example the player X has played then
+         * the next played is the O
+         * the child is the next possible moves which all
+         * start with the opposite color**/
         if (Color.equals("O")) {
             Color = "X";
         } else {
             Color = "O";
         }
+        /**creates an arrayList type State it contains all the children inside**/
         ArrayList<State> children = new ArrayList<State>();
         for (int row = 0; row < Width - 1; row++) {
             for (int col = 0; col < Height - 1; col++) {
                 if (LayoutTable[row][col].equals(".")) {
-                    State child = new State(this); //ftiaxnw kainoyrgio state
-                    child.DeleteDot();              // afth einai h diadikasia
-                    child.addElement(row, col, Color);  // otan vazw kanoyrgio pioni
-                    child.FlipElements(row, col, Color); //sto paixnidi. etsi paragw epomenes kinhseis
-                    children.add(child);         //prosthetw sthn array list ta paidia
+                    State child = new State(this); //Making a new state(child)
+                    /**this is the procedure in order to add en element successfully **/
+                    child.DeleteDot();
+                    child.addElement(row, col, Color);
+                    child.FlipElements(row, col, Color);
+                    /**adds the child in the array for every (.) there is a child**/
+                    children.add(child);
                 }
             }
         }
-        /*for (int k = 0; k < children.size(); k++) {
-            children.get(k).evaluate();
-            children.get(k).print();               //emfanizw ta paidia
-        }*/
         return children;
-    }
+    }//end ArrayList
 
-    //copy constractor to xrhsimopoiw sth getChildren gia na parago tis pithanes kinhseis
+
+    /**copy constractor is used in getChildren to make
+     * all the next moves
+     * **/
     public State(State state) {
         LastMove = state.LastMove;
         LastColorPlayed = state.LastColorPlayed;
+        /**every child has its oun score by not 0ing it the childes get the value of the path **/
         score = 0;
         LayoutTable = new String[Width][Height];
         for (int i = 0; i < Width; i++) {
@@ -565,26 +575,25 @@ public class State {
         }
     }
 
-    // o kenos constractoras o opoios arxikopoiei to pinaka mas
+    /**empty constructor initializes the table **/
     public State() {
         LastColorPlayed = " ";
         LayoutTable = new String[Width][Height];
         LastMove = new Move();
     }
-
+    /**get the last move **/
     public Move getLastMove() {
         return LastMove;
     }
-
+    /**calls all the heuristic functions end returns the score**/
     public int evaluate() {
         heuristic1();
         heuristic2();
         heuristic3();
         heuristic4();
-        //System.out.println("to score sthn evaluate einai: " + score);
         return score;
     }
-
+    /**get how the last player was**/
     public String getLastColorPlayed() {
         return LastColorPlayed;
     }
