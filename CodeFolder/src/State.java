@@ -472,7 +472,7 @@ public class State {
         if (LayoutTable[x][y].equals(Color) && Color.equals("X")) {
             score = score - 100;
         }
-        else if (LayoutTable[x][y].equals(Color) && Color.equals("X"))
+        else if (LayoutTable[x][y].equals(Color) && Color.equals("O"))
         {
             score = score + 100;
         }
