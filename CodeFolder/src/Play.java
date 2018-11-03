@@ -35,6 +35,7 @@ public class Play {
              * player 1 count 1 3 5 7 9 11 13 15 17 19 21 23
              * player 2 count 2 4 6 8 10 12 14 16 18 20 22**/
             if(game1.isFull()){
+                game1.print();
                 game1.FinalResult();//checks if game is over
                 break;//exits
             }
@@ -51,7 +52,7 @@ public class Play {
             else
             {
                 /**players 1 turn **/
-                count = PlayerTurn(Color,count);
+                count =  PlayerTurn(Color,count);
             }
         }//end while
         reader.close();

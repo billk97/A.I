@@ -5,7 +5,7 @@ public class State {
     private String[][] LayoutTable;
     private int score;
     private Move LastMove;
-    private  String LastColorPlayed;
+    private String LastColorPlayed;
 
     /**
      * prints the current state of the game
@@ -55,6 +55,8 @@ public class State {
         LayoutTable[4][5] = "X";
         LayoutTable[5][4] = "X";
         LayoutTable[5][5] = "O";
+
+
         return LayoutTable;
     }//end Initializer
 
@@ -62,9 +64,13 @@ public class State {
      * allows the user to to add an element to the the game
      **/
     public void addElement(int x, int y, String Color) {
-        LastMove = new Move(x,y);
-        LayoutTable[x][y] = Color;
-        LastColorPlayed=Color;
+        if (isInBorder(x, y)) {
+            LastMove = new Move(x, y);
+            LayoutTable[x][y] = Color;
+            LastColorPlayed = Color;
+        } else {
+            System.out.println("not in border " + x + " " + y);
+        }
     }//end addElement
 
     /**
@@ -118,7 +124,7 @@ public class State {
                 if (LayoutTable[i][j].equals(Color)) {
                     //  check the left
                     count = 0;
-                    while (LayoutTable[i][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1) {
+                    while (j - 1 - count >= 1 && LayoutTable[i][j - 1 - count].equals(OppositeColor)) {
                         if (LayoutTable[i][j - 2 - count].equals("_")) {
                             LayoutTable[i][j - 2 - count] = ".";
                         }
@@ -126,7 +132,7 @@ public class State {
                     }
                     //check right
                     count = 0;
-                    while (LayoutTable[i][j + 1 + count].equals(OppositeColor) && j + 1 + count <= 8) {
+                    while (j + 1 + count <= 8 && LayoutTable[i][j + 1 + count].equals(OppositeColor)) {
                         if (LayoutTable[i][j + 2 + count].equals("_")) {
                             LayoutTable[i][j + 2 + count] = ".";
                         }
@@ -134,7 +140,7 @@ public class State {
                     }
                     //check up
                     count = 0;
-                    while (LayoutTable[i - 1 - count][j].equals(OppositeColor) && i - 1 - count > 1) {
+                    while (i - 1 - count >= 1 && LayoutTable[i - 1 - count][j].equals(OppositeColor)) {
                         if (LayoutTable[i - 2 - count][j].equals("_")) {
                             LayoutTable[i - 2 - count][j] = ".";
                         }
@@ -142,7 +148,7 @@ public class State {
                     }
                     //check down
                     count = 0;
-                    while (LayoutTable[i + 1 + count][j].equals(OppositeColor) && i + 1 + count < 8) {
+                    while (i + 1 + count <= 8 && LayoutTable[i + 1 + count][j].equals(OppositeColor)) {
                         if (LayoutTable[i + 2 + count][j].equals("_")) {
                             LayoutTable[i + 2 + count][j] = ".";
                         }
@@ -150,7 +156,7 @@ public class State {
                     }
                     //check diagonal up left
                     count = 0;
-                    while (LayoutTable[i - 1 - count][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1 && i - 1 - count > 1) {
+                    while (j - 1 - count >= 1 && i - 1 - count >= 1 && LayoutTable[i - 1 - count][j - 1 - count].equals(OppositeColor)) {
                         if (LayoutTable[i - 2 - count][j - 2 - count].equals("_")) {
                             LayoutTable[i - 2 - count][j - 2 - count] = ".";
                         }
@@ -158,7 +164,7 @@ public class State {
                     }
                     //check diagonal up right
                     count = 0;
-                    while (LayoutTable[i - 1 - count][j + 1 + count].equals(OppositeColor) && j + 1 + count <= 8 && i - 1 - count > 1) {
+                    while (j + 1 + count <= 8 && i - 1 - count >= 1 && LayoutTable[i - 1 - count][j + 1 + count].equals(OppositeColor)) {
                         if (LayoutTable[i - 2 - count][j + 2 + count].equals("_")) {
                             LayoutTable[i - 2 - count][j + 2 + count] = ".";
                         }
@@ -166,7 +172,7 @@ public class State {
                     }
                     //check diagonal down left
                     count = 0;
-                    while (LayoutTable[i + 1 + count][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1 && i + 1 + count <= 8) {
+                    while (j - 1 - count >= 1 && i + 1 + count <= 8 && LayoutTable[i + 1 + count][j - 1 - count].equals(OppositeColor)) {
                         if (LayoutTable[i + 2 + count][j - 2 - count].equals("_")) {
                             LayoutTable[i + 2 + count][j - 2 - count] = ".";
                         }
@@ -174,7 +180,7 @@ public class State {
                     }
                     //check diagonal down right
                     count = 0;
-                    while (LayoutTable[i + 1 + count][j + 1 + count].equals(OppositeColor) && j + 1 + count <= 8 && i + 1 + count <= 8) {
+                    while (j + 1 + count <= 8 && i + 1 + count <= 8 && LayoutTable[i + 1 + count][j + 1 + count].equals(OppositeColor)) {
                         if (LayoutTable[i + 2 + count][j + 2 + count].equals("_")) {
                             LayoutTable[i + 2 + count][j + 2 + count] = ".";
                         }
@@ -225,110 +231,112 @@ public class State {
             OppositeColor = "O";
         }
         //every time it finds the color its given
-        if (LayoutTable[i][j].equals(Color)) {
-            //check left
-            count = 0;
-            while (LayoutTable[i][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1) {
-                //if it finds a same Color it stops
-                if (LayoutTable[i][j - 2 - count].equals(Color)) {
-                    //changer every color between Color and Color
-                    for (int k = j - 1 - count; k <= j - 1; k++) {
-                        LayoutTable[i][k] = Color;
+        if (isInBorder(i, j)) {
+            if (LayoutTable[i][j].equals(Color)) {
+                //check left
+                count = 0;
+                while (j - 1 - count >= 1 && LayoutTable[i][j - 1 - count].equals(OppositeColor)) {
+                    //if it finds a same Color it stops
+                    if (LayoutTable[i][j - 2 - count].equals(Color)) {
+                        //changer every color between Color and Color
+                        for (int k = j - 1 - count; k <= j - 1; k++) {
+                            LayoutTable[i][k] = Color;
+                        }
                     }
+                    count++;
                 }
-                count++;
-            }
-            //check right
-            count = 0;
-            while (LayoutTable[i][j + 1 + count].equals(OppositeColor) && j + 1 + count <= 8) {
-                if (LayoutTable[i][j + 2 + count].equals(Color)) {
-                    for (int k = j + 1 + count; k >= j + 1; k--) {
-                        LayoutTable[i][k] = Color;
-                    }
-
-                }
-                count++;
-            }
-            //check up
-            count = 0;
-            while (LayoutTable[i - 1 - count][j].equals(OppositeColor) && i - 1 - count > 1) {
-                if (LayoutTable[i - 2 - count][j].equals(Color)) {
-                    for (int k = i - 1 - count; k <= i - 1; k++) {
-                        LayoutTable[k][j] = Color;
+                //check right
+                count = 0;
+                while (j + 1 + count <= 8 && LayoutTable[i][j + 1 + count].equals(OppositeColor)) {
+                    if (LayoutTable[i][j + 2 + count].equals(Color)) {
+                        for (int k = j + 1 + count; k >= j + 1; k--) {
+                            LayoutTable[i][k] = Color;
+                        }
 
                     }
-
+                    count++;
                 }
-                count++;
-            }
-            //check down
-            count = 0;
-            while (LayoutTable[i + 1 + count][j].equals(OppositeColor) && i + 1 + count < 8) {
-                if (LayoutTable[i + 2 + count][j].equals(Color)) {
-                    for (int k = i + 1 + count; k >= i + 1; k--) {
-                        LayoutTable[k][j] = Color;
+                //check up
+                count = 0;
+                while (i - 1 - count >= 1 && LayoutTable[i - 1 - count][j].equals(OppositeColor)) {
+                    if (LayoutTable[i - 2 - count][j].equals(Color)) {
+                        for (int k = i - 1 - count; k <= i - 1; k++) {
+                            LayoutTable[k][j] = Color;
+
+                        }
 
                     }
-
+                    count++;
                 }
-                count++;
-            }
-            //check diagonal up left
-            count = 0;
-            while (LayoutTable[i - 1 - count][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1 && i - 1 - count > 1) {
-                int r = 0;
-                if (LayoutTable[i - 2 - count][j - 2 - count].equals(Color)) {
-                    for (int k = i - 1 - count; k <= i - 1; k++) {
-                        LayoutTable[k][j - 1 - count + r] = Color;
-                        r++;
+                //check down
+                count = 0;
+                while (i + 1 + count <= 8 && LayoutTable[i + 1 + count][j].equals(OppositeColor)) {
+                    if (LayoutTable[i + 2 + count][j].equals(Color)) {
+                        for (int k = i + 1 + count; k >= i + 1; k--) {
+                            LayoutTable[k][j] = Color;
+
+                        }
+
                     }
-
-
+                    count++;
                 }
-                count++;
-            }
-            //check diagonal up right
-            count = 0;
-            while (LayoutTable[i - 1 - count][j + 1 + count].equals(OppositeColor) && j + 1 + count <= 8 && i - 1 - count > 1) {
-
-
-                if (LayoutTable[i - 2 - count][j + 2 + count].equals(Color)) {
+                //check diagonal up left
+                count = 0;
+                while (j - 1 - count >= 1 && i - 1 - count >= 1 && LayoutTable[i - 1 - count][j - 1 - count].equals(OppositeColor)) {
                     int r = 0;
-                    for (int k = i - 1 - count; k <= i - 1; k++) {
-                        LayoutTable[k][j + 1 + count - r] = Color;
-                        r++;
-                    }
+                    if (LayoutTable[i - 2 - count][j - 2 - count].equals(Color)) {
+                        for (int k = i - 1 - count; k <= i - 1; k++) {
+                            LayoutTable[k][j - 1 - count + r] = Color;
+                            r++;
+                        }
 
-                }
-                count++;
-            }
-            //check diagonal down left
-            count = 0;
-            while (LayoutTable[i + 1 + count][j - 1 - count].equals(OppositeColor) && j - 1 - count > 1 && i + 1 + count <= 8) {
 
-                if (LayoutTable[i + 2 + count][j - 2 - count].equals(Color)) {
-                    int r = 0;
-                    for (int k = i + 1 + count; k >= i + 1; k--) {
-                        LayoutTable[k][j - 1 - count + r] = Color;
-                        r++;
                     }
+                    count++;
+                }
+                //check diagonal up right
+                count = 0;
+                while (j + 1 + count <= 8 && i - 1 - count >= 1 && LayoutTable[i - 1 - count][j + 1 + count].equals(OppositeColor)) {
 
-                }
-                count++;
-            }
-            //check diagonal down right
-            count = 0;
-            while (LayoutTable[i + 1 + count][j + 1 + count].equals(OppositeColor) && j + 1 + count <= 8 && i + 1 + count <= 8) {
-                if (LayoutTable[i + 2 + count][j + 2 + count].equals(Color)) {
-                    int r = 0;
-                    for (int k = i + 1 + count; k >= i + 1; k--) {
-                        LayoutTable[k][j + 1 + count - r] = Color;
-                        r++;
+
+                    if (LayoutTable[i - 2 - count][j + 2 + count].equals(Color)) {
+                        int r = 0;
+                        for (int k = i - 1 - count; k <= i - 1; k++) {
+                            LayoutTable[k][j + 1 + count - r] = Color;
+                            r++;
+                        }
+
                     }
+                    count++;
                 }
-                count++;
-            }//end while
-        }//enf if
+                //check diagonal down left
+                count = 0;
+                while (j - 1 - count >= 1 && i + 1 + count <= 8 && LayoutTable[i + 1 + count][j - 1 - count].equals(OppositeColor)) {
+
+                    if (LayoutTable[i + 2 + count][j - 2 - count].equals(Color)) {
+                        int r = 0;
+                        for (int k = i + 1 + count; k >= i + 1; k--) {
+                            LayoutTable[k][j - 1 - count + r] = Color;
+                            r++;
+                        }
+
+                    }
+                    count++;
+                }
+                //check diagonal down right
+                count = 0;
+                while (j + 1 + count <= 8 && i + 1 + count <= 8 && LayoutTable[i + 1 + count][j + 1 + count].equals(OppositeColor)) {
+                    if (LayoutTable[i + 2 + count][j + 2 + count].equals(Color)) {
+                        int r = 0;
+                        for (int k = i + 1 + count; k >= i + 1; k--) {
+                            LayoutTable[k][j + 1 + count - r] = Color;
+                            r++;
+                        }
+                    }
+                    count++;
+                }//end while
+            }//enf if
+        }
     }// end FlipElements
 
 
@@ -337,7 +345,7 @@ public class State {
      * the border of the game WIDTH ,HEIGHT
      **/
     public boolean isInBorder(int x, int y) {
-        if (x >= 1 && x <= 9 && y >= 1 && y <= 9)
+        if (x >= 1 && x < 9 && y >= 1 && y < 9)
             return true;
         else
             return false;
@@ -502,8 +510,8 @@ public class State {
     //ftiaxnei ta paidia kai ta emfanizei
     public ArrayList<State> getChildren(String Color) {
         ArrayList<State> children = new ArrayList<State>();
-        for (int row = 0; row < Width-1; row++) {
-            for (int col = 0; col < Height-1; col++) {
+        for (int row = 0; row < Width - 1; row++) {
+            for (int col = 0; col < Height - 1; col++) {
                 if (LayoutTable[row][col].equals(".")) {
                     State child = new State(this); //ftiaxnw kainoyrgio state
                     child.DeleteDot();              // afth einai h diadikasia
@@ -523,8 +531,8 @@ public class State {
     //copy constractor to xrhsimopoiw sth getChildren gia na parago tis pithanes kinhseis
     public State(State state) {
         LastMove = state.LastMove;
-        LastColorPlayed=state.LastColorPlayed;
-        score=0;
+        LastColorPlayed = state.LastColorPlayed;
+        score = 0;
         LayoutTable = new String[Width][Height];
         for (int i = 0; i < Width; i++) {
             for (int j = 0; j < Height; j++) {
@@ -535,27 +543,26 @@ public class State {
 
     // o kenos constractoras o opoios arxikopoiei to pinaka mas
     public State() {
-        LastColorPlayed="O";
+        LastColorPlayed = "O";
         LayoutTable = new String[Width][Height];
         LastMove = new Move();
     }
-    public  Move getLastMove()
-    {
+
+    public Move getLastMove() {
         return LastMove;
     }
 
-    public int evaluate(){
+    public int evaluate() {
         heuristic1();
         heuristic2();
         heuristic3();
         heuristic4();
-        System.out.println("to score sthn evaluate einai: "+score);
+        System.out.println("to score sthn evaluate einai: " + score);
         return score;
     }
 
-    public String getLastColorPlayed()
-    {
-        return  LastColorPlayed;
+    public String getLastColorPlayed() {
+        return LastColorPlayed;
     }
 
 
