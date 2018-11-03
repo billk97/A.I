@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="915daabb-e4cf-44de-83e5-e6634a54de93" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
+    <list default="true" id="915daabb-e4cf-44de-83e5-e6634a54de93" name="Default Changelist" comment=" tests added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/StateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/StateTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +17,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/State.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="680">
-                    <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+                  <state relative-caret-position="-461">
+                    <caret line="237" column="16" lean-forward="true" selection-start-line="237" selection-start-column="16" selection-end-line="237" selection-end-column="16" />
                     <folding>
                       <element signature="e#786#787#0" expanded="true" />
                       <element signature="e#814#815#0" expanded="true" />
@@ -36,6 +37,15 @@
                       <element signature="e#20148#20149#0" expanded="true" />
                       <element signature="e#20186#20187#0" expanded="true" />
                     </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/Tests/StateTest.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1802">
+                    <caret line="109" column="47" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
                   </state>
                 </provider>
               </entry>
@@ -96,27 +106,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="groovy" value="2" />
-          <entry key="java" value="24" />
+          <entry key="java" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="24" />
+          <entry key="JAVA" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="groovy" value="257" />
-          <entry key="java" value="8658" />
-          <entry key="txt" value="610" />
+          <entry key="java" value="8988" />
+          <entry key="txt" value="649" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="257" />
-          <entry key="JAVA" value="8658" />
-          <entry key="PLAIN_TEXT" value="610" />
+          <entry key="JAVA" value="8988" />
+          <entry key="PLAIN_TEXT" value="649" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -174,7 +184,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Play.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
+                <state relative-caret-position="-1356">
                   <caret line="54" column="49" lean-forward="true" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -187,7 +197,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="272">
@@ -195,15 +205,6 @@
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tests/StateTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="544">
-                  <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -236,9 +237,9 @@
         <option value="$PROJECT_DIR$/src/SuperMain.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/Tests/StateTest.groovy" />
-        <option value="$PROJECT_DIR$/Tests/StateTest.java" />
         <option value="$PROJECT_DIR$/src/Play.java" />
         <option value="$PROJECT_DIR$/src/State.java" />
+        <option value="$PROJECT_DIR$/Tests/StateTest.java" />
       </list>
     </option>
   </component>
@@ -288,7 +289,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541270842042" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541278479511" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -318,44 +319,69 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="JUnit.StateTest">
+    <configuration name="StateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CodeFolder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StateTest.predictLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StateTest.FlipDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CodeFolder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StateTest" />
-      <option name="METHOD_NAME" value="predictLeft" />
+      <option name="METHOD_NAME" value="FlipDown" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StateTest.testPredictleft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StateTest.FlipLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CodeFolder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StateTest" />
-      <option name="METHOD_NAME" value="testPredictleft" />
+      <option name="METHOD_NAME" value="FlipLeft" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StateTest.FlipUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CodeFolder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
+      <option name="METHOD_NAME" value="FlipUp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StateTest.predictDiagonalRightDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CodeFolder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
+      <option name="METHOD_NAME" value="predictDiagonalRightDown" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.StateTest.testPredictleft" />
-      <item itemvalue="JUnit.StateTest.predictLeft" />
+      <item itemvalue="JUnit.StateTest.predictDiagonalRightDown" />
+      <item itemvalue="JUnit.StateTest" />
+      <item itemvalue="JUnit.StateTest.FlipUp" />
+      <item itemvalue="JUnit.StateTest.FlipDown" />
+      <item itemvalue="JUnit.StateTest.FlipLeft" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.StateTest.predictLeft" />
-        <item itemvalue="JUnit.StateTest.testPredictleft" />
+        <item itemvalue="JUnit.StateTest" />
+        <item itemvalue="JUnit.StateTest.FlipDown" />
+        <item itemvalue="JUnit.StateTest.FlipLeft" />
+        <item itemvalue="JUnit.StateTest.FlipUp" />
+        <item itemvalue="JUnit.StateTest.predictDiagonalRightDown" />
       </list>
     </recent_temporary>
   </component>
@@ -503,33 +529,53 @@
       <option name="project" value="LOCAL" />
       <updated>1540752569437</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="getValue added and 1 test">
+      <created>1541273599020</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1541273599020</updated>
+    </task>
+    <task id="LOCAL-00021" summary=" tests added">
+      <created>1541275515411</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1541275515411</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 30m 56s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest_FlipLeft - 2018.11.03 at 22h 40m 04s.xml">
+      <configuration name="StateTest.FlipLeft" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 32m 19s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest_FlipLeft - 2018.11.03 at 22h 40m 40s.xml">
+      <configuration name="StateTest.FlipLeft" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 32m 50s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest - 2018.11.03 at 22h 45m 59s.xml">
+      <configuration name="StateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 33m 33s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest_FlipLeft - 2018.11.03 at 22h 47m 57s.xml">
+      <configuration name="StateTest.FlipLeft" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 34m 05s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest - 2018.11.03 at 22h 49m 33s.xml">
+      <configuration name="StateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 34m 48s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest_FlipDown - 2018.11.03 at 22h 50m 09s.xml">
+      <configuration name="StateTest.FlipDown" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 35m 15s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest_FlipDown - 2018.11.03 at 22h 51m 26s.xml">
+      <configuration name="StateTest.FlipDown" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StateTest_predictLeft - 2018.11.03 at 20h 49m 57s.xml">
-      <configuration name="StateTest.predictLeft" configurationId="JUnit" />
+    <history-entry file="StateTest_FlipDown - 2018.11.03 at 22h 51m 55s.xml">
+      <configuration name="StateTest.FlipDown" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest_FlipDown - 2018.11.03 at 22h 52m 31s.xml">
+      <configuration name="StateTest.FlipDown" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateTest - 2018.11.03 at 22h 53m 25s.xml">
+      <configuration name="StateTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView" selected-index="3">
@@ -554,14 +600,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.11464245" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4121475" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998884" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32887402" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.13758865" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.4986577" visible="true" weight="0.23101953" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4986577" weight="0.23101953" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.20932755" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -619,33 +665,18 @@
     <MESSAGE value="comments added in Play function" />
     <MESSAGE value="comments added in State function" />
     <MESSAGE value="getChildren, State(), State(State state)" />
-    <option name="LAST_COMMIT_MESSAGE" value="getChildren, State(), State(State state)" />
+    <MESSAGE value="getValue added and 1 test" />
+    <MESSAGE value=" tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value=" tests added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/Scanner.java" />
     <entry file="file://$PROJECT_DIR$/src/MainInterface.java" />
     <entry file="file://$PROJECT_DIR$/src/SuperMain.java" />
     <entry file="file://$PROJECT_DIR$/Tests/StateTest.groovy" />
-    <entry file="file://$PROJECT_DIR$/Tests/StateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Play.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="-1356">
           <caret line="54" column="49" lean-forward="true" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -686,10 +717,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+        <state relative-caret-position="-461">
+          <caret line="237" column="16" lean-forward="true" selection-start-line="237" selection-start-column="16" selection-end-line="237" selection-end-column="16" />
           <folding>
             <element signature="e#786#787#0" expanded="true" />
             <element signature="e#814#815#0" expanded="true" />
@@ -705,6 +746,13 @@
             <element signature="e#20148#20149#0" expanded="true" />
             <element signature="e#20186#20187#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/StateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="109" column="47" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
         </state>
       </provider>
     </entry>
