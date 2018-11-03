@@ -12,9 +12,9 @@ public class State {
      **/
     public void print() {
         System.out.print("-------------------Start-----------------------");
-        for (int row = 0; row < Width - 1; row++) {
+        for (int row = 0; row < Width-1 ; row++) {
             System.out.print("\n");
-            for (int colum = 0; colum < Height - 1; colum++) {
+            for (int colum = 0; colum < Height-1 ; colum++) {
                 System.out.print(LayoutTable[row][colum] + " ");
             }
         }
@@ -121,8 +121,8 @@ public class State {
 
         int count;
         /**two for to cross/check the hole table **/
-        for (int i = 1; i < Width; i++) {
-            for (int j = 1; j < Height; j++) {
+        for (int i = 1; i < Width-1; i++) {
+            for (int j = 1; j < Height-1; j++) {
                 //every time it finds the color its given
                 if (LayoutTable[i][j].equals(Color)) {
                     //  check the left
@@ -526,8 +526,8 @@ public class State {
     //ftiaxnei ta paidia kai ta emfanizei
     public ArrayList<State> getChildren(String Color) {
         ArrayList<State> children = new ArrayList<State>();
-        for (int row = 0; row < Width ; row++) {
-            for (int col = 0; col < Height ; col++) {
+        for (int row = 0; row < Width-1; row++) {
+            for (int col = 0; col < Height-1 ; col++) {
                 if (LayoutTable[row][col].equals(".")) {
                     State child = new State(this); //ftiaxnw kainoyrgio state
                     child.DeleteDot();              // afth einai h diadikasia
