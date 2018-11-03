@@ -5,7 +5,7 @@ public class Play {
     public  State game1 = new State();//creation of an Object State named game1
     public  int CountDotForEachPlayer=0;//a counter helps determine which player turn it is
     GamePlayer gamePlayer;
-    int maxDepth = 3;
+    int maxDepth = 4;
     public  void play()
     {
         boolean exit = false ;

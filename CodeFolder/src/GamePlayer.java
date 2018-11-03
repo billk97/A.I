@@ -32,7 +32,8 @@ public class GamePlayer {
         ArrayList<State> children = new ArrayList<State>(state.getChildren("O"));
         Move maxMove = new Move(Integer.MIN_VALUE);
         for (State child : children)
-        {
+        {   child.Predict("O");
+
             Move move = min(child,depth+1);
             if(move.getValue()>=maxMove.getValue())
             {
@@ -68,6 +69,8 @@ public class GamePlayer {
         Move minMove = new Move(Integer.MAX_VALUE);
         for (State child : children)
         {
+            child.Predict("X");
+
             Move move = max(child,depth+1);
             if(move.getValue()<= minMove.getValue())
             {

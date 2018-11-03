@@ -12,9 +12,9 @@ public class State {
      **/
     public void print() {
         System.out.print("-------------------Start-----------------------");
-        for (int row = 0; row < Width-1 ; row++) {
+        for (int row = 0; row < Width - 1; row++) {
             System.out.print("\n");
-            for (int colum = 0; colum < Height-1 ; colum++) {
+            for (int colum = 0; colum < Height - 1; colum++) {
                 System.out.print(LayoutTable[row][colum] + " ");
             }
         }
@@ -34,15 +34,15 @@ public class State {
     public int getHeight() {
         return Height;
     }
-    public String [][] getLayoutTable()
-    {
+
+    public String[][] getLayoutTable() {
         return LayoutTable;
     }
 
-    public String getValue(int x,int y)
-    {
+    public String getValue(int x, int y) {
         return LayoutTable[x][y];
     }
+
     /**
      * runs at the start of the game and initialies the game State
      **/
@@ -99,7 +99,7 @@ public class State {
             }
         }
         System.out.print("Score: ");
-        System.out.println("Player 1: " + CounterTable[0] + " " + "Player 2: " + CounterTable[1]);
+        System.out.println("Player O : " + Integer.toString(CounterTable[0]) + " Player X : " + Integer.toString(CounterTable[1]));
         return CounterTable;
     }//end Score
 
@@ -126,8 +126,8 @@ public class State {
 
         int count;
         /**two for to cross/check the hole table **/
-        for (int i = 1; i < Width-1; i++) {
-            for (int j = 1; j < Height-1; j++) {
+        for (int i = 1; i < Width - 1; i++) {
+            for (int j = 1; j < Height - 1; j++) {
                 //every time it finds the color its given
                 if (LayoutTable[i][j].equals(Color)) {
                     //  check the left
@@ -472,30 +472,28 @@ public class State {
         }
     }// end Heuristic3
 
-    private void add100(int x,int y,String Color)
-    {
+    private void add100(int x, int y, String Color) {
         if (LayoutTable[x][y].equals(Color) && Color.equals("X")) {
             score = score - 100;
-        }
-        else if (LayoutTable[x][y].equals(Color) && Color.equals("O"))
-        {
+        } else if (LayoutTable[x][y].equals(Color) && Color.equals("O")) {
             score = score + 100;
         }
     }
+
     /**
      * in reverci the corners are the most important to win sow
      * if X or Y is plays a move in a corner
      * the score goose up by a lot
      **/
     private void heuristic2() {
-        add100(1,1,"O");
-        add100(8,8,"O");
-        add100(1,8,"O");
-        add100(8,1,"O");
-        add100(1,1,"X");
-        add100(8,8,"X");
-        add100(1,8,"X");
-        add100(8,1,"X");
+        add100(1, 1, "O");
+        add100(8, 8, "O");
+        add100(1, 8, "O");
+        add100(8, 1, "O");
+        add100(1, 1, "X");
+        add100(8, 8, "X");
+        add100(1, 8, "X");
+        add100(8, 1, "X");
     }//end heuristic2
 
     /**
@@ -530,9 +528,14 @@ public class State {
 
     //ftiaxnei ta paidia kai ta emfanizei
     public ArrayList<State> getChildren(String Color) {
+        if (Color.equals("O")) {
+            Color = "X";
+        } else {
+            Color = "O";
+        }
         ArrayList<State> children = new ArrayList<State>();
-        for (int row = 0; row < Width-1; row++) {
-            for (int col = 0; col < Height-1 ; col++) {
+        for (int row = 0; row < Width - 1; row++) {
+            for (int col = 0; col < Height - 1; col++) {
                 if (LayoutTable[row][col].equals(".")) {
                     State child = new State(this); //ftiaxnw kainoyrgio state
                     child.DeleteDot();              // afth einai h diadikasia
@@ -578,7 +581,7 @@ public class State {
         heuristic2();
         heuristic3();
         heuristic4();
-        System.out.println("to score sthn evaluate einai: " + score);
+        //System.out.println("to score sthn evaluate einai: " + score);
         return score;
     }
 
