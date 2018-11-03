@@ -38,6 +38,11 @@ public class State {
     {
         return LayoutTable;
     }
+
+    public String getValue(int x,int y)
+    {
+        return LayoutTable[x][y];
+    }
     /**
      * runs at the start of the game and initialies the game State
      **/
