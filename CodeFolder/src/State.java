@@ -4,6 +4,8 @@ public class State {
     private int Width = 10, Height = 10;
     private String[][] LayoutTable;
     private int score;
+    private Move LastMove;
+    private  String LastColorPlayed;
 
     /**
      * prints the current state of the game
@@ -60,7 +62,9 @@ public class State {
      * allows the user to to add an element to the the game
      **/
     public void addElement(int x, int y, String Color) {
+        LastMove = new Move(x,y);
         LayoutTable[x][y] = Color;
+        LastColorPlayed=Color;
     }//end addElement
 
     /**
@@ -518,6 +522,8 @@ public class State {
 
     //copy constractor to xrhsimopoiw sth getChildren gia na parago tis pithanes kinhseis
     public State(State state) {
+        LastMove = state.LastMove;
+        LastColorPlayed=state.LastColorPlayed;
         score=0;
         LayoutTable = new String[Width][Height];
         for (int i = 0; i < Width; i++) {
@@ -529,19 +535,27 @@ public class State {
 
     // o kenos constractoras o opoios arxikopoiei to pinaka mas
     public State() {
+        LastColorPlayed="O";
         LayoutTable = new String[Width][Height];
+        LastMove = new Move();
+    }
+    public  Move getLastMove()
+    {
+        return LastMove;
     }
 
-    public void evaluate(){
+    public int evaluate(){
         heuristic1();
         heuristic2();
         heuristic3();
         heuristic4();
         System.out.println("to score sthn evaluate einai: "+score);
+        return score;
+    }
 
-
-
-
+    public String getLastColorPlayed()
+    {
+        return  LastColorPlayed;
     }
 
 

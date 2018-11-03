@@ -107,7 +107,6 @@ public class Play {
         CountDotForEachPlayer=0;
         game1.Score();
         game1.print();
-        game1.getChildren(Color);// edw paragei kai emfanizei ta paidia ths kathe kinhshs
         int x=0 , y=0;
         System.out.println("X which row ");
         System.out.print("X: ");
@@ -130,5 +129,7 @@ public class Play {
         }
         return count;
     }//end PlayerTurn
+
+    
 
 }//end Play
