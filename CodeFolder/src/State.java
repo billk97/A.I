@@ -65,6 +65,9 @@ public class State {
         LayoutTable[5][5] = "O";
 
 
+
+
+
         return LayoutTable;
     }//end Initializer
 
@@ -456,15 +459,15 @@ public class State {
     //gives points when you have the outline
     private void find(int a, int b) {
         if (LayoutTable[a][b].equals("O")) {
-            score += 10;
+            score += 20;
         } else if (LayoutTable[a][b].equals("X")) {
-            score -= 10;
+            score -= 20;
         }
     }//end find
 
-    //gives points when you have the outline
+    //gives points when you have the edges of rows and columns
     private void heuristic3() {
-        for (int i = 2; i < Width - 1; i++) {
+        for (int i = 2; i <= Width - 3; i++) {  //ALLAKSA SE WIDTH -3 GT EPIANE KAI TI GWNIA KAI TI METRUSE 2 FORES
             find(1, i);
             find(i, 1);
             find(8, i);
@@ -503,28 +506,68 @@ public class State {
     //finds the vulnerable positions
     private void findVulnPositions(int a, int b) {
         if (LayoutTable[a][b].equals("O")) {
-            score -= 25;
+            score -= 40;
         } else if (LayoutTable[a][b].equals("X")) {
-            score += 25;
+            score += 40;
         }
     }//end findVulnPositions
 
     //heuristic about the vulnerable positions
     private void heuristic4() {
 
-        findVulnPositions(1, 2);
-        findVulnPositions(2, 1);
-        findVulnPositions(2, 2);
-        findVulnPositions(1, 7);
-        findVulnPositions(2, 7);
-        findVulnPositions(2, 8);
-        findVulnPositions(7, 1);
-        findVulnPositions(7, 2);
-        findVulnPositions(8, 2);
-        findVulnPositions(7, 7);
-        findVulnPositions(8, 7);
-        findVulnPositions(7, 8);
+        if(LayoutTable[1][1].equals("_")) {
+            findVulnPositions(1, 2);
+            findVulnPositions(2, 1);
+            findVulnPositions(2, 2);
+        }
+        if(LayoutTable[1][8].equals("_")) {
+            findVulnPositions(1, 7);
+            findVulnPositions(2, 7);
+            findVulnPositions(2, 8);
+        }
+        if(LayoutTable[8][1].equals("_")) {
+            findVulnPositions(7, 1);
+            findVulnPositions(7, 2);
+            findVulnPositions(8, 2);
+        }
+        if(LayoutTable[8][8].equals("_")) {
+            findVulnPositions(7, 7);
+            findVulnPositions(8, 7);
+            findVulnPositions(7, 8);
+        }
     }//end heuristic4
+
+    //heuristic 5 eliminate score for the rows and columns that
+    // could be your opponent's bridge to  an outside edge position
+
+    public void heuristic5(){
+       for(int i=2;i<=Width-2;i++)
+       {
+           if(LayoutTable[2][i].equals("O") && LayoutTable[1][i].equals("_")) {
+            score-=15;
+           }else if(LayoutTable[2][i].equals("X") && LayoutTable[1][i].equals("_")){
+            score+=15;
+           }
+
+           if(LayoutTable[i][2].equals("O") && LayoutTable[i][1].equals("_")){
+               score-=15;
+           }else if(LayoutTable[i][2].equals("X") && LayoutTable[i][1].equals("_")){
+               score+=15;
+           }
+
+           if(LayoutTable[7][i].equals("O") && LayoutTable[8][i].equals("_")){
+               score-=15;
+           }else if(LayoutTable[7][i].equals("X") && LayoutTable[8][i].equals("_")){
+               score+=15;
+           }
+
+           if(LayoutTable[i][7].equals("O") && LayoutTable[i][8].equals("_")){
+               score-=15;
+           }else if(LayoutTable[i][7].equals("X") && LayoutTable[i][8].equals("_")){
+               score+=15;
+           }
+       }
+    }//end of the heuristic5
 
     //ftiaxnei ta paidia kai ta emfanizei
     public ArrayList<State> getChildren(String Color) {
@@ -581,7 +624,8 @@ public class State {
         heuristic2();
         heuristic3();
         heuristic4();
-        //System.out.println("to score sthn evaluate einai: " + score);
+        heuristic5();
+        System.out.println("to score sthn evaluate einai: " + score);
         return score;
     }
 
