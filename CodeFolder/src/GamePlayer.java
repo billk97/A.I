@@ -29,11 +29,11 @@ public class GamePlayer {
             Move lastMove = new Move(state.getLastMove().getRow(),state.getLastMove().getCol(),state.evaluate());
             return lastMove;
         }
-        ArrayList<State> children = new ArrayList<State>(state.getChildren("O"));
+        ArrayList<State> children = new ArrayList<State>(state.getChildren("X"));
         Move maxMove = new Move(Integer.MIN_VALUE);
         for (State child : children)
-        {   child.Predict("O");
-
+        {
+            child.Predict("X");
             Move move = min(child,depth+1);
             if(move.getValue()>=maxMove.getValue())
             {
@@ -65,11 +65,11 @@ public class GamePlayer {
             Move lastMove = new Move(state.getLastMove().getRow(),state.getLastMove().getCol(),state.evaluate());
             return lastMove;
         }
-        ArrayList<State> children = new ArrayList<State>(state.getChildren("X"));
+        ArrayList<State> children = new ArrayList<State>(state.getChildren("O"));
         Move minMove = new Move(Integer.MAX_VALUE);
         for (State child : children)
         {
-            child.Predict("X");
+            child.Predict("O");
             Move move = max(child,depth+1);
             if(move.getValue()<= minMove.getValue())
             {
