@@ -70,7 +70,6 @@ public class GamePlayer {
         for (State child : children)
         {
             child.Predict("X");
-
             Move move = max(child,depth+1);
             if(move.getValue()<= minMove.getValue())
             {
@@ -93,6 +92,4 @@ public class GamePlayer {
         }//end for
         return minMove;
     }//end min
-
-
 }//end GamePlayer
