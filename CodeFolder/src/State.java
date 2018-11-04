@@ -625,7 +625,6 @@ public class State {
         heuristic3();
         heuristic4();
         heuristic5();
-        System.out.println("to score sthn evaluate einai: " + score);
         return score;
     }
 
