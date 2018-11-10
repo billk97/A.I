@@ -138,6 +138,7 @@ public class Play {
 
         Move move = gamePlayer.MiniMax(game1);
         count ++;
+        /**standard procedure for adding an element **/
         game1.DeleteDot();
         game1.addElement(move.getRow(),move.getCol(),Color);
         game1.FlipElements(move.getRow(),move.getCol(),Color);
@@ -182,7 +183,6 @@ public class Play {
         {
             System.out.println("Move not valid please retry !");
         }
-
 
         return count;
     }//end PlayerTurn
