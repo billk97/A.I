@@ -5,9 +5,9 @@ public class Play {
     public  State game1 = new State();//creation of an Object State named game1
     public  int CountDotForEachPlayer=0;//a counter helps determine which player turn it is
     GamePlayer gamePlayer;
-    int maxDepth = 4;
+    int maxDepth = 5;
     public  void play()
-    {
+    { int count=1;
         boolean exit = false ;
         game1.Initializer();
         /**by Color we mean ether X od O **/
@@ -17,6 +17,23 @@ public class Play {
         Color = reader.nextLine();
         String OppositeColor;//the opposite color ex. Color=O --> OppositeColor=X
         /**checks if given value is a desired value**/
+        System.out.println("Do you want to play first? Y or N");
+        String answer = reader.nextLine();
+        if(answer.equals("N")){
+            count++;
+        }
+        int answerDepth=-1;
+        System.out.println("Please insert the Max Depth. 5 is recommended:");
+        while(true) {
+            try {
+                answerDepth = reader.nextInt();
+                break;
+            } catch (Exception e) {
+                 System.out.println("Wrong input.Give a legal depth");
+                reader.next();//waits for the next INPUT
+            }
+        }
+        maxDepth = answerDepth;
         while(!(Color.equals("O"))&&!(Color.equals("X")))
         {
             System.out.println("choose X or O: ");
@@ -26,7 +43,7 @@ public class Play {
         OppositeColor=FindOpositeColore(Color);
         gamePlayer= new GamePlayer(maxDepth,OppositeColor);
         /**useful its a simple counter**/
-        int count=1;
+
 
         while(exit == false)
         {
