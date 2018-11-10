@@ -15,10 +15,20 @@ public class Play {
         Scanner reader = new Scanner(System.in);
         System.out.println("choose X or O: ");
         Color = reader.nextLine();
+        while(!(Color.equals("O"))&&!(Color.equals("X")))
+        {
+            System.out.println("wrong input choose X or O: ");
+            Color = reader.nextLine();
+        }
         String OppositeColor;//the opposite color ex. Color=O --> OppositeColor=X
         /**checks if given value is a desired value**/
         System.out.println("Do you want to play first? Y or N");
         String answer = reader.nextLine();
+        while(!(answer.equals("Y"))&&!(answer.equals("N")))
+        {
+            System.out.println("wrong input choose Y or N: ");
+            answer = reader.nextLine();
+        }
         if(answer.equals("N")){
             count++;
         }
@@ -34,11 +44,6 @@ public class Play {
             }
         }
         maxDepth = answerDepth;
-        while(!(Color.equals("O"))&&!(Color.equals("X")))
-        {
-            System.out.println("choose X or O: ");
-            Color = reader.nextLine();
-        }
         /**creates the opposite color (the other player)**/
         OppositeColor=FindOpositeColore(Color);
         gamePlayer= new GamePlayer(maxDepth,OppositeColor);
@@ -132,11 +137,10 @@ public class Play {
         int x=0 , y=0;
 
         Move move = gamePlayer.MiniMax(game1);
+        count ++;
         game1.DeleteDot();
         game1.addElement(move.getRow(),move.getCol(),Color);
         game1.FlipElements(move.getRow(),move.getCol(),Color);
-        count ++;
-
         return count;
     }
 
@@ -152,6 +156,7 @@ public class Play {
             count++;
             CountDotForEachPlayer++;
             System.out.println("You don't have any moves");
+
             return count;
         }
         CountDotForEachPlayer=0;
@@ -177,6 +182,8 @@ public class Play {
         {
             System.out.println("Move not valid please retry !");
         }
+
+
         return count;
     }//end PlayerTurn
 

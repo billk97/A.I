@@ -64,10 +64,6 @@ public class State {
         LayoutTable[5][4] = "X";
         LayoutTable[5][5] = "O";
 
-
-
-
-
         return LayoutTable;
     }//end Initializer
 
@@ -395,8 +391,8 @@ public class State {
      **/
     public int CountDot() {
         int counterDot = 0;
-        for (int i = 0; i < Width; i++) {
-            for (int j = 0; j < Height; j++) {
+        for (int i = 0; i < Width-1; i++) {
+            for (int j = 0; j < Height-1; j++) {
                 if (LayoutTable[i][j].equals(".")) {
                     counterDot++;
                 }
