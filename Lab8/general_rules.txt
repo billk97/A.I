@@ -1,0 +1,21 @@
+
+:-	IF
+,	AND
+;	OR
+not	NOT
++	addition
+- 	subtraction
+* 	multiplication
+/	real division
+// 	integer division
+mod 	modulus
+**	power
+# 	XOR
+=:=	equality
+=\=	disequality
+=< 	less or equal
+=> 	greater or equal
+
+
+
+
